@@ -5,6 +5,7 @@
     <title>Click Pizzas</title>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <link rel="stylesheet" type="text/css" href="fancybox/source/jquery.fancybox.css" />
+
     <!-- HTML5 shiv, faz que o IE6-8 suporte elementos HTML5 -->
     <!--[if lt IE 9]>
      <script src="js/html5shiv.js"></script>
