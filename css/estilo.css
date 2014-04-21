@@ -18,7 +18,7 @@ body:before {
 html, body, #main{
 height:100%;
 }
-input[type="email"],input[type="text"],input[type="date"],input[type="number"],button {
+input[type="email"],input[type="text"],input[type="date"],input[type="number"],button,input[type="password"] {
     padding:5px 10px 5px 10px;
 }
 #emailnewsletter {
@@ -266,4 +266,85 @@ text-align:justify;
     width:700px;
     margin: 0px auto;
     height:600px;
+}
+.cardapio{
+    width:395px;
+    background-color:rgba(252, 239, 136,0.6);
+    height: 290px;
+    margin:10px 0 10px 5px;
+    border-radius:5px;
+    display:inline-block;
+}
+.cardapio img{
+    width: 350px;
+    height:220px;
+    margin:15px 0px 0 22px;
+}
+.cardapio h2,#ingredientes h2{
+font-family: 'Averia Sans Libre', cursive;
+color: rgb(255,255,255);
+text-shadow: 1px 1px #808080;
+font-size: 1.2em;
+text-align: center;
+background-color: rgba(230,158,18,0.6);
+padding: 5px 0 5px 0;
+}
+
+#ingredientes{
+    width:800px;
+    background-color:rgba(252, 239, 136,0.6);
+    height: 290px;
+    margin:10px 0 10px 5px;
+    border-radius:5px;
+    display:inline-block;
+}
+#ingredientes img{
+    width: 700px;
+    height:220px;
+    margin:15px 0px 0 52px;
+}
+#formLogin{
+    margin-top:10px;
+    border-radius:5px;
+    width:800px;
+    height:560px;
+    background-color:rgba(252, 239, 136,0.6);
+}
+#formLogin a{
+    text-decoration:none;
+}
+
+#formLogin h2{
+font-family: 'Averia Sans Libre', cursive;
+color: rgb(255,255,255);
+text-shadow: 1px 1px #808080;
+font-size: 1.2em;
+text-align: center;
+background-color: rgba(230,158,18,0.6);
+padding: 5px 0 5px 0;
+}
+#formLogin fieldset{
+    width:400px;
+    margin:100px auto;
+    border:none;
+    line-height:30px;
+}
+#formLogin fieldset div{
+    position:relative;
+}
+#formLogin fieldset input[type='email'] {
+    width:400px;
+}
+#formLogin fieldset input{
+    display:block;
+    position:relative;    
+    margin-bottom:10px;
+}
+#formLogin fieldset button{
+    margin-top:20px;
+}
+#formLogin label.error {
+	top: -20px;
+	width: auto;
+    color:#cc0000
 }

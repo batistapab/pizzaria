@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 <!--#include file="inc/metatags.asp"  -->
-    <title>Cardápio - Click Pizzas</title>
+    <title>Click Pizzas</title>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <link rel="stylesheet" type="text/css" href="fancybox/source/jquery.fancybox.css" />
     <!-- HTML5 shiv, faz que o IE6-8 suporte elementos HTML5 -->
@@ -14,20 +14,7 @@
     <div id="main">
         <!--#include file="inc/topo.asp"  -->
         <div id="conteudo">
-               <div class="cardapio">
-                   <h2>Pizzas tradicionais</h2>
-                   <img src="img/pizza.jpg" alt="pizzas tradicionais" title="pizzas tradicionais" />
-               </div>
-            
-               <div class="cardapio">
-                   <h2>Bebidas</h2>
-                   <img src="img/refrigerantes.png" alt="Bebidas" title="Bebidas" />
-               </div>
-            
-               <div id="ingredientes">
-                   <h2>Monte sua pizza</h2>
-                   <img src="img/ingredientes.png" alt="Ingredientes" title="Ingredientes" />
-               </div>
+               
             
            <!--#include file="inc/apoio.asp"  -->
         </div>

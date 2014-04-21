@@ -13,5 +13,6 @@
                parent.location.reload(true);
            },
            'type': 'iframe'
-       });    });
+       });
+    });
     </script>

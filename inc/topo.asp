@@ -11,6 +11,7 @@
                         <li><a href="historia.asp">História</a></li>
                         <li><a href="cardapio.asp">Cardápio</a></li>
                         <li><a href="pedidos.asp">Pedidos</a></li>
+                        <li><a href="login.asp">Login</a></li>
                     </ul>
                 </nav>
         </div>
