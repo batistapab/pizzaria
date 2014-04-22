@@ -1,6 +1,6 @@
 ﻿<!--#include file="inc/funcoes.asp"  -->
 <!--#include file="inc/md5.asp"  -->
-<% Call conecta %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,6 +35,30 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
         Response.End
     end if
 
+    Call conecta
+    sql="SELECT * FROM USUARIOS WHERE EMAIL='"& email &"' AND SENHA='"&senha&"'" 
+    Set rs = conn.Execute(sql)
+
+
+    if NOT rs.EOF then	 
+        If rs("STATUSODUSUARIO")="ATIVO" Then
+             Response.Cookies("nome") = rs("NOME")
+             Response.Cookies("email") = rs("EMAIL")
+             Response.Cookies("perfil") = rs("PERFIL")
+             Response.Redirect("home.asp") 
+             Response.End
+
+       else 'Se o usuário estiver inativo ou bloqueado será direcionado a ligar para central
+
+             Response.Write("O seu cadastro está inativo entre em contato com a nossa central de atendimento!<br />Telefones (011) 2222-2222 | 3333-3333!") 
+             Response.AddHeader "Refresh","5 ; URL=login.asp"
+
+       end if
+    else
+        Response.Write("Usuário e/ou senha não encontrado!<br />Tente novamente!")       
+    end if
+
+    
     If Err.Number <> 0 Then
   
       Response.Write (Err.Description& "<br><br>")
@@ -42,13 +66,12 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
   
     End If
 
-
-    Response.Write("E-mail: "&email)
-    Response.Write("<br />"&senha)
+    Call desconecta
+    Response.AddHeader "Refresh","4 ; URL=login.asp"
     On Error GoTo 0
 
 else
-
+        Response.AddHeader "Refresh","0 ; URL=index.asp"
 end if
 %>
              <!--#include file="inc/apoio.asp"  -->
@@ -59,4 +82,3 @@ end if
     <!--#include file="inc/scripts.asp"  -->
 </body>
 </html>
-<% Call desconecta %>

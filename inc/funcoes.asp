@@ -1,7 +1,7 @@
 ﻿<%
 Option Explicit 
 
-dim conn
+dim conn,sql,rs
 
 Function ValidEmail(ByVal emailAddress) 
 'this function will use regular expressions to check an '
