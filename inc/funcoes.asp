@@ -1,7 +1,7 @@
 ﻿<%
 Option Explicit 
 
-dim conn,sql,rs
+dim conn
 
 Function ValidEmail(ByVal emailAddress) 
 'this function will use regular expressions to check an '
@@ -23,7 +23,7 @@ End Function
 
 sub conecta
     set conn = Server.CreateObject("ADODB.Connection")
-    conn.Open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source="& Server.MapPath("db/pizzaria.accdb")& ";Jet OLEDB:Database Password=pizzaria;"
+    conn.Open "Provider=Microsoft.Jet.OLEDB.4.0;Data Source="& Server.MapPath("db/pizzaria.mdb")& ";Jet OLEDB:Database Password=pizzaria;"
 end sub
 
 sub desconecta

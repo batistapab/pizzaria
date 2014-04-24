@@ -3,9 +3,6 @@
                     <img src="img/pizzaVetor.png"  alt="Pizzaria Interativa" title="Pizzaria Interativa" />
                     <h1>Click Pizzas </h1>
                     <h3>O verdareiro sabor da Itália !</h3>
-                <% if Request.Cookies("nome")<>"" then %>
-                    <p>Olá, <% =Request.Cookies("nome") %>.</p>
-                <%end if %>
                 </div>
                 <section id="telefones"><span>Disque Pizza</span><br /> (011) 2222-2222 | 3333-3333</section>
                 <nav class="menu">

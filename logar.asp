@@ -1,5 +1,9 @@
 ﻿<!--#include file="inc/funcoes.asp"  -->
 <!--#include file="inc/md5.asp"  -->
+<%
+     On Error Resume Next 
+    
+ %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,9 +22,7 @@
         <!--#include file="inc/topo.asp"  -->
         <div id="conteudo">
 <%
-On Error Resume Next
-Server.ScriptTimeout = 90
-dim email,senha
+dim email,senha,rs,sql
 
 if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
     email=Request.Form("email")
@@ -36,16 +38,20 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
     end if
 
     Call conecta
-    sql="SELECT * FROM USUARIOS WHERE EMAIL='"& email &"' AND SENHA='"&senha&"'" 
-    Set rs = conn.Execute(sql)
-
-
+    set rs = Server.CreateObject("ADODB.Recordset")
+     rs.open "SELECT * FROM USUARIOS WHERE EMAIL='"& email &"' AND SENHA='"&senha&"'" , conn
+    
     if NOT rs.EOF then	 
+        
         If rs("STATUSODUSUARIO")="ATIVO" Then
              Response.Cookies("nome") = rs("NOME")
              Response.Cookies("email") = rs("EMAIL")
              Response.Cookies("perfil") = rs("PERFIL")
-             Response.Redirect("home.asp") 
+            if rs("PERFIL")=1 then
+                Response.Redirect("home.asp") 
+            else
+                Response.Redirect("minha-pagina.asp") 
+            end if
              Response.End
 
        else 'Se o usuário estiver inativo ou bloqueado será direcionado a ligar para central

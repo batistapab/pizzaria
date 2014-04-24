@@ -1,5 +1,4 @@
 *{margin: 0;padding: 0} /*Aqui zeramos a margin e o padding de todos os elementos */
-ul{list-style-type: none;} /*Retiramos o list style de todos uls que formos utilizar */
 body{
     background:  rgba(230,158,18,0.5) url('../img/background.jpg') no-repeat;    
     min-width: 880px;
@@ -71,7 +70,6 @@ body>#main>#conteudo>#apoio{
     left:0;
     width: 100%;
     height: 130px;
-    /*background-color: rgba(230,158,18,0.6);*/
 	background-color: rgba(252, 239, 136,0.9);
 }
 #topo>#logo>h1,#topo>#logo>h2{
@@ -166,14 +164,14 @@ body #topo>#logo>p{
     height: 80px;
     padding: 10px 0 10px 0;
     position: relative;
-    /*background-color: rgba(230,158,18,0.6);*/
-	background-color: rgba(252, 239, 136,0.9);
+	background-color: rgba(252, 239, 136,0.7);
     clear:both;
 }
 
 #redessociais {
-        float:right;
-        margin:0 20px;
+position: absolute;
+right: 20px;
+bottom: 10px;
 }
 #redessociais img {
 background-color:#fff;
@@ -195,6 +193,7 @@ body>#main>#conteudo>#content>h2{
     right: 20px;
     text-align: right;
     position: absolute; 
+
 }
 nav.menu{
     width: -webkit-calc(100%-250px);  /* para Chrome */
@@ -203,9 +202,9 @@ nav.menu{
     display: block;
     top: 98px;
     right: 20px;
-    text-align: right;
+    text-align: center;
 }
-nav.menu ul{font-size: 0;}
+nav.menu ul{font-size: 0;list-style-type: none;}
 nav.menu ul li{display: inline-block; border-right: 1px solid #ccc;border-left: 1px solid #555;padding: 0 10px 0 10px;font-size: 14px;}
 nav.menu ul li a:link,nav.menu ul li a:visited{text-decoration: none;color: #fff;font-size: 1.2em;
 text-shadow: #555 1px 2px 1px;
@@ -358,3 +357,85 @@ padding: 5px 0 5px 0;
 	width: auto;
     color:#cc0000
 }
+
+#menuServicos{
+    width:210px;
+    min-height:580px;
+    background-color:rgba(252, 239, 136,0.6);
+    margin:10px 0 10px;
+    border-radius:5px;
+    float:left;
+}
+#menuServicos h2{
+font-family: 'Averia Sans Libre', cursive;
+color: rgb(255,255,255);
+text-shadow: 1px 1px #808080;
+font-size: 1.2em;
+text-align: center;
+background-color: rgba(230,158,18,0.6);
+padding: 5px 0 5px 0;
+}
+
+#menuServicos ul{
+    list-style-image:url('../img/bullet.gif');
+    list-style-position: outside;
+    margin:30px 0 0 25px;
+    width:180px;
+}
+
+#menuServicos ul li a:link,#menuServicos ul li a:visited {
+    text-decoration:none;
+    color:#fff;
+    line-height:30px;
+}
+#menuServicos ul li a:hover,#menuServicos ul li a:active {
+    text-decoration:underline;
+    color:#eee;
+}
+
+#home #conteudo #content{
+    width: 800px;
+    min-height:580px;
+    background-color:rgba(252, 239, 136,0.6);
+    float:right;
+    margin:10px 0 0 0;
+}
+
+#home #conteudo #content h2{
+font-family: 'Averia Sans Libre', cursive;
+color: rgb(255,255,255);
+text-shadow: 1px 1px #808080;
+font-size: 1.2em;
+text-align: center;
+background-color: rgba(230,158,18,0.6);
+padding: 5px 0 5px 0;
+}
+#home #conteudo #nome-usuario{
+    float:left;
+    width:100%;
+    padding:10px 0 10px;
+    text-indent:30px;
+    background-color:rgba(252, 239, 136,0.8);
+    margin-top:10px;
+
+}
+#tabelaPedidos{
+    width:100%;
+    border-collapse:collapse;
+    border-spacing:0;
+    margin-top:10px;
+    line-height:25px;
+    text-align:center;
+}
+#tabelaPedidos th{
+    font-weight:normal;
+    background-color:rgba(230,158,18,0.5);
+    padding:10px 0 10px;
+}
+#tabelaPedidos th,#tabelaPedidos td{
+    border-right:solid 1px rgb(230,158,18)
+}
+#tabelaPedidos th:last-child, #tabelaPedidos td:last-child {
+    border-right:none;
+    }
+#tabelaPedidos tbody tr:nth-child(odd){ background-color: rgba(255,255,255,0.8);}

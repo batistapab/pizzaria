@@ -5,7 +5,7 @@
 <head>
 
 <!--#include file="inc/metatags.asp"  -->
-    <title>Home</title>
+    <title>Minha página</title>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <link rel="stylesheet" type="text/css" href="fancybox/source/jquery.fancybox.css" />
     <!-- HTML5 shiv, faz que o IE6-8 suporte elementos HTML5 -->
