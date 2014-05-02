@@ -17,19 +17,14 @@
                <div class="cardapio">
                    <h2>Pizzas tradicionais</h2>
                    <img src="img/pizza.jpg" alt="pizzas tradicionais" title="pizzas tradicionais" />
-               </div>
-            
-               <div class="cardapio">
                    <h2>Bebidas</h2>
                    <img src="img/refrigerantes.png" alt="Bebidas" title="Bebidas" />
-               </div>
-            
-               <div id="ingredientes">
                    <h2>Monte sua pizza</h2>
                    <img src="img/ingredientes.png" alt="Ingredientes" title="Ingredientes" />
                </div>
-            
-           <!--#include file="inc/apoio.asp"  -->
+               <div id="listaPedido">
+
+               </div>
         </div>
         
     <!--#include file="inc/footer.asp"  -->

@@ -31,7 +31,19 @@ sub desconecta
     Set conn = Nothing
 end sub
 
+function captalize(Texto)
+    Dim arrayTexto, i,Resultado
+    arrayTexto = Split(Texto," ") 
+    For i = 0 to UBound(arrayTexto) 
+        Resultado = Resultado &" "& UCase(Left(arrayTexto(i),1))&lcase(mid(arrayTexto(i),2,len(arrayTexto(i)))) 		
+    Next 
+    Response.Write(Resultado)
+end function 
 
+function ajustaTitleHtml(title)
+    title=Replace(title,"-", " ")
+    ajustaTitleHtml=captalize(title)
+end function
  
 %>
 

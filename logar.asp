@@ -43,7 +43,7 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
     
     if NOT rs.EOF then	 
         
-        If rs("STATUSODUSUARIO")="ATIVO" Then
+        If rs("STATUSODUSUARIO")=1 Then
              Response.Cookies("nome") = rs("NOME")
              Response.Cookies("email") = rs("EMAIL")
              Response.Cookies("perfil") = rs("PERFIL")
@@ -58,7 +58,7 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
 
              Response.Write("O seu cadastro está inativo entre em contato com a nossa central de atendimento!<br />Telefones (011) 2222-2222 | 3333-3333!") 
              Response.AddHeader "Refresh","5 ; URL=login.asp"
-
+             Response.End
        end if
     else
         Response.Write("Usuário e/ou senha não encontrado!<br />Tente novamente!")       

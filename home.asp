@@ -5,7 +5,19 @@
 <head>
 
 <!--#include file="inc/metatags.asp"  -->
-    <title>Home</title>
+    <%
+        dim id,caminho
+        id=Request.QueryString("id")    
+    %>
+    <title>
+        <% 
+            if id="" then 
+                Response.Write("Home")
+            else
+                ajustaTitleHtml(id)
+            end if
+        %>
+    </title>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <link rel="stylesheet" type="text/css" href="fancybox/source/jquery.fancybox.css" />
     <!-- HTML5 shiv, faz que o IE6-8 suporte elementos HTML5 -->
@@ -15,64 +27,52 @@
 </head>
 <body id="home">
     <div id="main">
-
         <!--#include file="inc/topo.asp"  -->
         <div id="conteudo">
-            <p id="nome-usuario">Olá, <% =Request.Cookies("nome") %></p>
-               <nav id="menuServicos">
-                   <h2>Pedidos</h2>
-                        <ul>
-                            <li><a href="#" id="ultimos">Últimos pedidos</a></li>
-                            <li><a href="#" id="pendentes">Pedidos pendentes</a></li>
-                            <li><a href="#" id="concluidos">Pedidos concluídos</a></li>
-                            <li><a href="alterar-senha.asp" id="alterar-senha">Alterar senha</a></li>
-                            <li><a href="alterar-dados.asp" id="alterar-dados">Alterar dados</a></li>
-                        </ul>
-               </nav>
+            <p id="nome-usuario">Olá, <% =Request.Cookies("nome") %></p>               
+              <!--#include file="inc/menu-de-servicos.asp"  -->
               <div id="content">
-                  <h2>Últimos pedidos</h2>
-                  <table id="tabelaPedidos">
-                      <thead>
-                          <tr>
-                              <th>Pedido</th>
-                              <th>Data</th>
-                              <th>Hora</th>
-                              <th>Metodo de pag</th>
-                              <th>Valor</th>
-                              <th>Status do pagamento</th>
-                              <th>Status do pedido</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td>12</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>RT</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td>ED</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                      </tbody>
-                  </table>
+                  <%
+                    '################### Aqui verificamos o id informado 
+                    ' Como os arquivos de inclusão são processados antes de qualquero código da página por isso utilizamos a solução abaixo
+                      Select Case id
+                            'pedidos
+                  %>
+	                       <% Case "pedidos-recentes" %>
+		                       <!--#include file="repositorio/pedidos/pedidos-recentes.asp"-->
+	                       <%  Case "pedidos-pendentes" %>
+		                       <!--#include file="repositorio/pedidos/pedidos-pendentes.asp"-->
+	                        <%  Case "pedidos-concluidos" %>
+		                        <!--#include file="repositorio/pedidos/pedidos-concluidos.asp"-->
+	                       <%   Case "pedidos-cancelados" %>
+		                         <!--#include file="repositorio/pedidos/pedidos-cancelados.asp"-->
+
+	                        'usuarios
+                           <%   Case "alterar-senha" %>
+		                        <!--#include file="repositorio/usuarios/alterar-senha.asp"-->
+	                       <%   Case "alterar-dados" %>
+		                        <!--#include file="repositorio/usuarios/alterar-dados.asp"-->
+                           <%   Case "cadastrar-usuarios" %>
+		                        <!--#include file="repositorio/usuarios/cadastrar-usuarios.asp"-->
+	                       <%  Case "editar-usuarios" %>
+		                        <!--#include file="repositorio/usuarios/editar-usuarios.asp"-->
+	                       <%  Case "lista-de-usuarios" %>
+		                        <!--#include file="repositorio/usuarios/lista-de-usuarios.asp"-->
+
+                      
+                            'produtos
+	                       <%  Case "cadastrar-produtos" %>
+		                       <!--#include file="repositorio/produtos/cadastrar-produtos.asp"-->
+	                       <%   Case "editar-produtos" %>
+		                        <!--#include file="repositorio/produtos/editar-produtos.asp"-->
+	                       <%   Case "lista-de-produtos" %>
+		                         <!--#include file="repositorio/produtos/lista-de-produtos.asp"-->
+
+                            'Este é o valor default
+	                        <%  Case Else %>
+		                        <!--#include file="repositorio/pedidos/pedidos-pendentes.asp" -->
+                       <% End Select  '################# fim da verificação  %>
+                
 
               </div>
             
