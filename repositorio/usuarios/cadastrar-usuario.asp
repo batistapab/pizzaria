@@ -1,5 +1,8 @@
 ﻿<h2>Cadastrar usuário</h2>
 <form class="cadastro" id="cadastrar-usuario" action="processos.asp" method="post">
+    <input type="hidden" name="operacao" id="operacao" value="01" />
+    <input type="hidden" name="acao" id="acao" value="cadastrar" />    
+    <input type="hidden" name="idUsuario" id="idUduario" value="0" />
     <div><label for="nome">Nome</label></div>
     <div><input type="text" name="nome" id="nome" maxlength="150" required /> </div>
     <div><label for="email">E-mail</label></div>

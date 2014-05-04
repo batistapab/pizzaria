@@ -445,3 +445,20 @@ padding: 5px 0 5px 0;
     width:90%;
     line-height:30px;
 }
+.retornoDB{
+    padding:20px; background:#fff; margin-top:200px;
+}
+.listas{
+    width:100%; 
+    text-align:center;
+    border-spacing:0;
+    border-collapse:collapse;
+}
+.listas tr th{padding:5px 0 5px;
+              background-color:rgb(146, 100, 4);
+              color:#fff;
+}
+.listas tr td{
+    padding:5px 0 5px;
+}
+.listas tr td:first-child{text-align:left;text-indent:20px;}

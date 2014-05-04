@@ -1,5 +1,4 @@
 ﻿<!--#include file="inc/funcoes.asp"  -->
-<!--#include file="inc/md5.asp"  -->
 <%
      On Error Resume Next 
     
@@ -29,12 +28,14 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
     senha=MD5(Request.Form("senha"))
 
     if Len(email) < 8 or Len(email) > 100 or ValidEmail(email) =False then
-        Response.Write("E-mail inválido!")
-        Response.End
+        Response.Write("E-mail inválido!")        
+	    Response.Write("<script type='text/javascript'>window.setTimeout('history.back();', 2000);</script>")
+	    response.end
     end if
     if Len(senha) < 10 and Len(senha) > 32 then
-        Response.Write("Senha inválida!")
-        Response.End
+        Response.Write("Senha inválida!")        
+	    Response.Write("<script type='text/javascript'>window.setTimeout('history.back();', 2000);</script>")
+	    response.end
     end if
 
     Call conecta
@@ -47,11 +48,7 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
              Response.Cookies("nome") = rs("NOME")
              Response.Cookies("email") = rs("EMAIL")
              Response.Cookies("perfil") = rs("PERFIL")
-            if rs("PERFIL")=1 then
-                Response.Redirect("home.asp") 
-            else
-                Response.Redirect("minha-pagina.asp") 
-            end if
+             Response.Redirect("home.asp") 
              Response.End
 
        else 'Se o usuário estiver inativo ou bloqueado será direcionado a ligar para central
@@ -76,8 +73,9 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
     Response.AddHeader "Refresh","4 ; URL=login.asp"
     On Error GoTo 0
 
-else
-        Response.AddHeader "Refresh","0 ; URL=index.asp"
+else        
+	    Response.Write("<script type='text/javascript'>window.setTimeout('history.back();', 2000);</script>")
+	    response.end
 end if
 %>
              <!--#include file="inc/apoio.asp"  -->

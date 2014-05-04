@@ -1,6 +1,4 @@
 ﻿<%
-dim nome,email,perfil
-
 nome=Request.Cookies("nome") 
 email=Request.Cookies("email") 
 perfil=Request.Cookies("perfil") 

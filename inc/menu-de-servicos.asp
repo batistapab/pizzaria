@@ -19,8 +19,8 @@
         </ul>
     <h2>Usuários</h2>
         <ul>
-            <li><a href="?id=cadastrar-usuarios" id="cadastrar-usuarios">Cadastrar usuários</a></li>
-            <li><a href="?id=editar-usuarios" id="editar-usuarios">Editar usuários</a></li>
+            <li><a href="?id=cadastrar-usuario" id="cadastrar-usuario">Cadastrar usuário</a></li>
+            <li><a href="?id=editar-usuario" id="editar-usuario">Editar usuário</a></li>
             <li><a href="?id=lista-de-usuarios" id="lista-de-usuarios">Lista de usuários</a></li>
         </ul>
     <%end if %>

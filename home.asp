@@ -6,7 +6,7 @@
 
 <!--#include file="inc/metatags.asp"  -->
     <%
-        dim id,caminho
+        dim caminho
         id=Request.QueryString("id")    
     %>
     <title>
@@ -47,20 +47,20 @@
 	                       <%   Case "pedidos-cancelados" %>
 		                         <!--#include file="repositorio/pedidos/pedidos-cancelados.asp"-->
 
-	                        'usuarios
+	                       <%   'usuarios  %>
                            <%   Case "alterar-senha" %>
 		                        <!--#include file="repositorio/usuarios/alterar-senha.asp"-->
 	                       <%   Case "alterar-dados" %>
 		                        <!--#include file="repositorio/usuarios/alterar-dados.asp"-->
-                           <%   Case "cadastrar-usuarios" %>
-		                        <!--#include file="repositorio/usuarios/cadastrar-usuarios.asp"-->
-	                       <%  Case "editar-usuarios" %>
-		                        <!--#include file="repositorio/usuarios/editar-usuarios.asp"-->
+                           <%   Case "cadastrar-usuario" %>
+		                        <!--#include file="repositorio/usuarios/cadastrar-usuario.asp"-->
+	                       <%  Case "editar-usuario" %>
+		                        <!--#include file="repositorio/usuarios/editar-usuario.asp"-->
 	                       <%  Case "lista-de-usuarios" %>
 		                        <!--#include file="repositorio/usuarios/lista-de-usuarios.asp"-->
 
                       
-                            'produtos
+                            <%   'produtos %>
 	                       <%  Case "cadastrar-produtos" %>
 		                       <!--#include file="repositorio/produtos/cadastrar-produtos.asp"-->
 	                       <%   Case "editar-produtos" %>
@@ -84,7 +84,19 @@
     <script>
         
     $(document).ready(function () {
-        $("tbody tr:even").css("background-color", "rgba(255,255,255,0.8)");
+        $("tbody tr:even").css("background-color", "rgba(255,255,255,0.8)");        
+        $(".ver").fancybox({
+           'width': 900,
+           'height': 600,
+           'scrolling': 'no',
+           'autoScale': false,
+           'transitionIn': 'none',
+           'transitionOut': 'none',
+           'onClosed': function () {
+               parent.location.reload(true);
+           },
+           'type': 'iframe'
+       });
         });
     </script>
 
