@@ -87,7 +87,7 @@
         $("tbody tr:even").css("background-color", "rgba(255,255,255,0.8)");        
         $(".ver").fancybox({
            'width': 900,
-           'height': 600,
+           'height': 650,
            'scrolling': 'no',
            'autoScale': false,
            'transitionIn': 'none',

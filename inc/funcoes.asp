@@ -163,7 +163,7 @@ function listar_usuarios(id)
           
              Do While Not rs.Eof 
                 tabela=tabela & "<tr>"
-                    tabela=tabela & "<td>"& rs("NOME") &"</td>"
+                    tabela=tabela & "<td>"& Ucase(rs("NOME")) &"</td>"
                     tabela=tabela & "<td>"& rs("EMAIL") &"</td>"
                     tabela=tabela & "<td>"& descricaoDoPerfil(rs("PERFIL")) &"</td>"
                     tabela=tabela & "<td>"& descricaoDoStatus(rs("STATUSDOUSUARIO")) &"</td>"  

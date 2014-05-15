@@ -1,8 +1,8 @@
 ﻿        <div id="topo">
             <div id="logo">
-                    <img src="img/pizzaVetor.png"  alt="Pizzaria Interativa" title="Pizzaria Interativa" />
+                    <img src="img/pizzaVetor.png"  alt="Click Pizzas" title="Click Pizzas" />
                     <h1>Click Pizzas </h1>
-                    <h3>O verdareiro sabor da Itália !</h3>
+                    <h3>A sua pizzaria interativa !</h3>
                 </div>
                 <section id="telefones"><span>Disque Pizza</span><br /> (011) 2222-2222 | 3333-3333</section>
                 <nav class="menu">

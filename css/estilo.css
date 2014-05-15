@@ -89,21 +89,23 @@ body #topo>#logo>p{
 }
 #topo>#logo>h1{
     font-size: 3em;
-    margin:5px 0 0px
+    margin:10px 0 0px;    
+    text-indent: 30px;
 }
 #topo>#logo>h2{
    
     font-size: 2.5em;
 }
 #topo>#logo>h3{
-    font-size: 1.8em;
-    color: #fff;
+font-size: 1.8em;
+color: #fff;
+text-indent: 30px;
 }
 #logo{
     margin-left:20px;
     height: 130px;
     width: 550px;
-    text-align: center; 
+    text-align: left; 
     font-family: 'Averia Sans Libre', cursive;    
     text-shadow: #444 1px 1px; 
 }
@@ -462,3 +464,6 @@ padding: 5px 0 5px 0;
     padding:5px 0 5px;
 }
 .listas tr td:first-child{text-align:left;text-indent:20px;}
+
+#editar-usuario input[type='submit'],#editar-usuario input[type='reset']{margin-top:15px;}
+#editar-usuario{color:#fff}

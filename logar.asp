@@ -21,8 +21,6 @@
         <!--#include file="inc/topo.asp"  -->
         <div id="conteudo">
 <%
-dim email,senha,rs,sql
-
 if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
     email=Request.Form("email")
     senha=MD5(Request.Form("senha"))
