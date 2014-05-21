@@ -1,4 +1,18 @@
 ﻿<!--#include file="../../inc/seguranca.asp"  -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+       <title>
+            Editar usuário
+    </title>
+    <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="../fancybox/source/jquery.fancybox.css" />
+    <!-- HTML5 shiv, faz que o IE6-8 suporte elementos HTML5 -->
+    <!--[if lt IE 9]>
+     <script src="../js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
 <form class="cadastro" id="editar-usuario" action="processos.asp" method="post">
     <h2>Editar usuário</h2>
     <input type="hidden" name="operacao" id="operacao" value="02" />
@@ -36,27 +50,30 @@
     <input type="submit" value="Salvar" />
     <input type="reset" value="Limpar" />
 </form>
- <script>$(document).ready(function () {
-  var url="repositorio/dados/dados-usuarios.asp";
-  var data="q=<% =Request.Querystring("q") %>"
-   
-  var requisicao=$.ajax({
-  url:  url,
-  type: "POST",
-  data: data,
-  dataType : "json",
-  success: function(retorno){
-      $("#idUsuario").val(retorno[0].ID); 
-      $("#nome").val(retorno[0].NOME); 
-      $("#email").val(retorno[0].EMAIL); 
-      $("#perfil").val(retorno[0].PERFIL);
-      $("#status").val(retorno[0].STATUSDOUSUARIO);
-      $("#observacao").val(retorno[0].OBSERVACAO); 
+    <div id="loading" style="display: none;">Carregando...</div>
+    <!--#include file="../../inc/scripts.asp"  -->
+    <script>$(document).ready(function () {
+     var url="repositorio/dados/dados-usuarios.asp";
+    $.ajax({
+    type: 'POST',
+    url: url,
+    async: false,
+    contentType: "application/json",
+    dataType: 'json',
+    data: { q : <% =Request.Querystring("q") %> },
+    success: function(result){
+                alert(result);
     },
-    error: function(erro){
-     alert(erro);
-    }  
-    });     
-       
-   });//Fim jquery
+    beforeSend: function(){
+        $('#loading').css({display:"block"});
+    },
+    complete: function(msg){
+        $('#loading').css({display:"none"});
+    }
+    });
+
+    });//Fim jquery
     </script>
+
+</body>
+</html>

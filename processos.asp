@@ -23,7 +23,6 @@
 
     '1 - Cadastrar usuários
     '2 - Editar usuários/Alterar dados
-    '3 - Alterar senha
 
     operacao = Request.Form("operacao")
     
@@ -35,10 +34,10 @@
 
     select case operacao
         case 1 'Cadastra usuário     
-            'Response.Write ("<br>"& Request.Form("senha2"))  
             Response.Write( processa_usuario(Request.Form("nome"), Request.Form("email"),Request.Form("perfil"),Request.Form("status"),Request.Form("senha"),Request.Form("observacao"),Request.Form("idUsuario"),Request.Form("acao")))
 
-        case 2
+        case 2 'Editar usuários/Alterar dados
+            Response.Write( processa_usuario(Request.Form("nome"), Request.Form("email"),Request.Form("perfil"),Request.Form("status"),Request.Form("senha"),Request.Form("observacao"),Request.Form("idUsuario"),Request.Form("acao")))
         case 3
         case else
 

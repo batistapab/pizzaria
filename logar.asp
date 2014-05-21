@@ -43,6 +43,7 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
     if NOT rs.EOF then	 
         
         If rs("STATUSODUSUARIO")=1 Then
+             Response.Cookies("idUsuario") = rs("ID")
              Response.Cookies("nome") = rs("NOME")
              Response.Cookies("email") = rs("EMAIL")
              Response.Cookies("perfil") = rs("PERFIL")

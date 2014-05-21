@@ -1,5 +1,4 @@
-﻿    <script src="js/jquery.js"></script>    
-    <script src="fancybox/source/jquery.fancybox.pack.js"></script>    
+﻿    <script src="fancybox/source/jquery.fancybox.pack.js"></script>    
     <script>
     $(document).ready(function() {
        $("#exibirPolitica").fancybox({

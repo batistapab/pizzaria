@@ -1,6 +1,7 @@
 *{margin: 0;padding: 0} /*Aqui zeramos a margin e o padding de todos os elementos */
 body{
-    background:  rgba(230,158,18,0.5) url('../img/background.jpg') no-repeat;    
+    background:  rgba(230,158,18,0.5) url('../img/background.jpg') repeat-y;  
+	background-size: 100% 1500px;
     min-width: 880px;
     height: 100%;
 }
@@ -42,7 +43,6 @@ body>#main{
     left: 0;
     width:1024px;
     height: auto;
-    min-height: 100%;
     position: relative; 
     margin:10px auto 10px;
 	/*Incluído para testes*/
@@ -443,8 +443,8 @@ padding: 5px 0 5px 0;
 }
 
 .cadastro{
-    margin:0 0 0 5%;
-    width:90%;
+    margin:0 5% 0;
+   /* width:90%;*/
     line-height:30px;
 }
 .retornoDB{
@@ -459,11 +459,32 @@ padding: 5px 0 5px 0;
 .listas tr th{padding:5px 0 5px;
               background-color:rgb(146, 100, 4);
               color:#fff;
+              text-transform:capitalize;
 }
 .listas tr td{
     padding:5px 0 5px;
 }
 .listas tr td:first-child{text-align:left;text-indent:20px;}
 
-#editar-usuario input[type='submit'],#editar-usuario input[type='reset']{margin-top:15px;}
-#editar-usuario{color:#fff}
+form#editar-usuario input[type='submit'],form#editar-usuario input[type='reset']{margin-top:15px; }
+form#editar-usuario input,form#editar-usuario select,form#editar-usuario textarea{margin-left:15px;}
+body form#editar-usuario{color:#fff;background-color:rgba(252, 239, 136,0.4);padding:0;width:100%;margin-left:0;height:100%}
+form#editar-usuario h2{font-family: 'Averia Sans Libre', cursive;
+color: rgb(255,255,255);
+text-shadow: 1px 1px #808080;
+font-size: 1.2em;
+text-align: center;
+background-color: rgba(230,158,18,0.6);
+padding: 5px 0 5px 0;
+}
+form#editar-usuario div label{padding-left:15px;}
+.alerta{position:absolute;right:200px;top:450px;color:rgb(146, 100, 4)}
+
+#retornolista h3{
+    text-align:center;
+    margin:50px auto;
+}
+
+.listas tbody tr:nth-child(odd){ background-color: rgba(255,255,255,0.8);}
+
+#retornolista .listas tbody tr td{text-transform:capitalize;}

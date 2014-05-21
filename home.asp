@@ -48,14 +48,10 @@
 		                         <!--#include file="repositorio/pedidos/pedidos-cancelados.asp"-->
 
 	                       <%   'usuarios  %>
-                           <%   Case "alterar-senha" %>
-		                        <!--#include file="repositorio/usuarios/alterar-senha.asp"-->
-	                       <%   Case "alterar-dados" %>
-		                        <!--#include file="repositorio/usuarios/alterar-dados.asp"-->
+	                       <%   Case "editar-usuario" %>
+		                        <!--#include file="repositorio/usuarios/editar-usuario.asp"-->
                            <%   Case "cadastrar-usuario" %>
 		                        <!--#include file="repositorio/usuarios/cadastrar-usuario.asp"-->
-	                       <%  Case "editar-usuario" %>
-		                        <!--#include file="repositorio/usuarios/editar-usuario.asp"-->
 	                       <%  Case "lista-de-usuarios" %>
 		                        <!--#include file="repositorio/usuarios/lista-de-usuarios.asp"-->
 
