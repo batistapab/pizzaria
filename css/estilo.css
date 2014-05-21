@@ -487,4 +487,4 @@ form#editar-usuario div label{padding-left:15px;}
 
 .listas tbody tr:nth-child(odd){ background-color: rgba(255,255,255,0.8);}
 
-#retornolista .listas tbody tr td{text-transform:capitalize;}
+#retornolista .listas tbody tr td:first-child{text-transform:capitalize;}

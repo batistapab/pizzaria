@@ -20,7 +20,7 @@
             $("#retornolista .listas thead").append("<tr><th>Nome</th><th>E-mail</th><th>Perfil</th><th>Status</th><th></th></tr>");
             $("#retornolista .listas").append("<tbody>");
             $.each(retorno, function(i, item) {
-            $("#retornolista .listas tbody").append("<tr><td>"+item.NOME.toLowerCase()+"</td>><td>"+item.EMAIL+"</td>><td>"+item.PERFIL+"</td>><td>"+item.STATUSDOUSUARIO+"</td></tr>");
+            $("#retornolista .listas tbody").append("<tr><td>"+item.NOME.toLowerCase()+"</td>><td>"+item.EMAIL+"</td>><td>"+item.PERFIL_EXT+"</td>><td>"+item.STATUS_EXT+"</td></tr>");
              
          }); 
      }
