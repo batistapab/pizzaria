@@ -14,7 +14,6 @@
 </head>
 <body>
     <div id="main">
-        <!--#include file="inc/topo.asp"  -->
         <div id="conteudo">
 <%
     Dim operacao
@@ -46,8 +45,6 @@
 
 %>
         </div>
-        
-    <!--#include file="inc/footer.asp"  -->
     </div>
 </body>
 </html>

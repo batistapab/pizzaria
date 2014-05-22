@@ -2,7 +2,7 @@
 <form class="cadastro" id="editar-usuario" action="processos.asp" method="post">
     <h2>Editar usuário</h2>
     <input type="hidden" name="operacao" id="operacao" value="02" />
-    <input type="hidden" name="acao" id="acao" value="cadastrar" />    
+    <input type="hidden" name="acao" id="acao" value="editar" />    
     <input type="hidden" name="idUsuario" id="idUsuario" value="0" />
     <div><label for="nome">Nome</label></div>
     <div><input type="text" name="nome" id="nome" maxlength="150" required /> </div>

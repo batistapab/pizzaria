@@ -82,7 +82,7 @@ end Function
 
 function processa_usuario(nome,email,perfil,status,senha,observacao,id,acao)
     
-    if Len(id) <> 1 or not IsNumeric(id) then
+    if not IsNumeric(id) then
         mensagem= mensagem & "<br />ID inválido."
         erro=1
     end if
@@ -118,7 +118,7 @@ function processa_usuario(nome,email,perfil,status,senha,observacao,id,acao)
             mensagem= mensagem & "<br />Informe uma senha que contenha entre 6 e 10 caracteres."
             erro=1
         else
-            query=",SENHA='"& senha &"'"
+            query=",SENHA='"& MD5(senha) &"'"
         end if
     end if
     if Len(observacao) > 4000 then
@@ -131,18 +131,24 @@ function processa_usuario(nome,email,perfil,status,senha,observacao,id,acao)
         On Error Resume Next 
 
             if id=0 or acao="cadastrar" then
-                sql="INSERT INTO USUARIOS (NOME,EMAIL,PERFIL,STATUSDOUSUARIO,SENHA,OBSERVACAO) VALUES ('"& captalize(nome) &"','"& LCase(email) &"',"& perfil  &", "& status&", '"& MD5(senha) &"', '"& observacao &"')"
+                sql="INSERT INTO USUARIOS (NOME,EMAIL,PERFIL,STATUSDOUSUARIO,SENHA,OBSERVACAO) VALUES ('"& nome &"','"& LCase(email) &"',"& perfil  &", "& status&", '"& MD5(senha) &"', '"& observacao &"')"
                 msgAcao="Cadastro efetuado com sucesso!"
             else
-                sql="UPDATE USUARIOS SET NOME='"& captalize(nome) &"',EMAIL='"& LCase(email) &"',PERFIL="& perfil  &",STATUSDOUSUARIO="& status&",OBSERVACAO='"& observacao &"'"& senha &" WHERE ID="&id&" "
+                sql="UPDATE USUARIOS SET NOME='"&nome &"',EMAIL='"& LCase(email) &"',PERFIL="& perfil  &",STATUSDOUSUARIO="& status&",OBSERVACAO='"& observacao &"'"& query &" WHERE ID="&id&" "
                 msgAcao="Atualização efetuada com sucesso!"
             end if
            Set rs=conn.Execute(sql)
 
           If Err.Number <> 0 Then  
-              processa_usuario = "<p class='retornoDB'><b>"& Err.Description &"</b><br /><script type='text/javascript'>window.setTimeout('history.back();', 2000);</script>"
+              processa_usuario = "<p class='retornoDB'><b>"& Err.Description 
+              processa_usuario=processa_usuario&"</b><br /><script type='text/javascript'>window.setTimeout('history.back();', 2000);</script>"
          else
-              processa_usuario = "<p class='retornoDB'><b>"&  msgAcao & "</b><br /><script type='text/javascript'>window.setTimeout('window.location.href = \'home.asp?id=cadastrar-usuario\'' , 2000);</script>"
+                if  acao="cadastrar" then
+                    processa_usuario = "<p class='retornoDB'><b>"&  msgAcao & "</b><br /><script type='text/javascript'>window.setTimeout('window.location.href = \'home.asp?id=cadastrar-usuario\'' , 2000);</script>"
+                else
+    
+                    processa_usuario = "<p class='retornoDB'><b>"&  msgAcao & "</b><br /><script type='text/javascript'>window.setTimeout('history.back();', 2000);</script>"
+                end if
          end if
         Call desconecta
     else

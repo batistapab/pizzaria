@@ -23,7 +23,7 @@
 <%
 if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
     email=Request.Form("email")
-    senha=MD5(Request.Form("senha"))
+    senha=Request.Form("senha")
 
     if Len(email) < 8 or Len(email) > 100 or ValidEmail(email) =False then
         Response.Write("E-mail inválido!")        
@@ -38,11 +38,11 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
 
     Call conecta
     set rs = Server.CreateObject("ADODB.Recordset")
-     rs.open "SELECT * FROM USUARIOS WHERE EMAIL='"& email &"' AND SENHA='"&senha&"'" , conn
-    
+     rs.open "SELECT * FROM USUARIOS WHERE EMAIL='"& email &"' AND SENHA='"&MD5(senha)&"'" , conn
+
     if NOT rs.EOF then	 
-        
-        If rs("STATUSODUSUARIO")=1 Then
+            
+        If rs("STATUSDOUSUARIO")="1" Then
              Response.Cookies("idUsuario") = rs("ID")
              Response.Cookies("nome") = rs("NOME")
              Response.Cookies("email") = rs("EMAIL")
@@ -51,13 +51,13 @@ if Request.Form("email")<>"" and  Request.Form("senha")<>"" then
              Response.End
 
        else 'Se o usuário estiver inativo ou bloqueado será direcionado a ligar para central
-
              Response.Write("O seu cadastro está inativo entre em contato com a nossa central de atendimento!<br />Telefones (011) 2222-2222 | 3333-3333!") 
              Response.AddHeader "Refresh","5 ; URL=login.asp"
              Response.End
        end if
     else
-        Response.Write("Usuário e/ou senha não encontrado!<br />Tente novamente!")       
+        Response.Write("Usuário e/ou senha não encontrado!<br />Tente novamente!")    
+        Response.End   
     end if
 
     
