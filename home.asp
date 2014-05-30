@@ -24,6 +24,8 @@
     <!--[if lt IE 9]>
      <script src="js/html5shiv.js"></script>
     <![endif]-->
+      
+<script src="js/funcoes.js"></script> 
 </head>
 <body id="home">
     <div id="main">
@@ -64,8 +66,8 @@
 	                       <%   Case "lista-de-produtos" %>
 		                         <!--#include file="repositorio/produtos/lista-de-produtos.asp"-->
 
-                            'Este é o valor default
-	                        <%  Case Else %>
+                           <%  'Este é o valor default
+	                         Case Else %>
 		                        <!--#include file="repositorio/pedidos/pedidos-pendentes.asp" -->
                        <% End Select  '################# fim da verificação  %>
                 
@@ -88,8 +90,8 @@
            "autoScale": false,
            "transitionIn": "none",
            "transitionOut": "none",
-           "onClosed": function () {
-               parent.location.reload(true);
+           "afterClose:": function () {
+              window.location.reload();
            },
            "type": "iframe"
        });

@@ -466,6 +466,8 @@ padding: 5px 0 5px 0;
 }
 .listas tr td:first-child{text-align:left;text-indent:20px;}
 
+
+/**Formulários de edição **/
 form#editar-usuario input[type='submit'],form#editar-usuario input[type='reset']{margin-top:15px; }
 form#editar-usuario input,form#editar-usuario select,form#editar-usuario textarea{margin-left:15px;}
 body form#editar-usuario{color:#fff;background-color:rgba(252, 239, 136,0.4);padding:0;width:100%;margin-left:0;height:100%}
@@ -478,6 +480,27 @@ background-color: rgba(230,158,18,0.6);
 padding: 5px 0 5px 0;
 }
 form#editar-usuario div label{padding-left:15px;}
+
+
+
+form#editar-produto input[type='submit'],form#editar-produto input[type='reset']{margin-top:15px; }
+form#editar-produto #produto{padding-left:10px;padding-right:10px;width:500px}
+form#editar-produto input,form#editar-produto select,form#editar-produto textarea{margin-left:15px;}
+body form#editar-produto{color:#fff;background-color:rgba(252, 239, 136,0.4);padding:0;width:100%;margin-left:0;height:100%}
+form#editar-produto h2{font-family: 'Averia Sans Libre', cursive;
+color: rgb(255,255,255);
+text-shadow: 1px 1px #808080;
+font-size: 1.2em;
+text-align: center;
+background-color: rgba(230,158,18,0.6);
+padding: 5px 0 5px 0;
+}
+form#editar-produto div label{padding-left:15px;}
+
+
+/**Fim dos formulários de edição**/
+
+
 .alerta{position:absolute;right:200px;top:450px;color:rgb(146, 100, 4)}
 
 #retornolista h3{

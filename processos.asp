@@ -37,7 +37,10 @@
 
         case 2 'Editar usuários/Alterar dados
             Response.Write( processa_usuario(Request.Form("nome"), Request.Form("email"),Request.Form("perfil"),Request.Form("status"),Request.Form("senha"),Request.Form("observacao"),Request.Form("idUsuario"),Request.Form("acao")))
-        case 3
+        case 3 'Cadastrar produto
+             Response.Write( processa_produto(Request.Form("produto"), Request.Form("categoria"),Request.Form("valor"),Request.Form("descricao"),Request.Form("idproduto"),Request.Form("acao")))
+        case 4 'Editar produto
+             Response.Write( processa_produto(Request.Form("produto"), Request.Form("categoria"),Request.Form("valor"),Request.Form("descricao"),Request.Form("idproduto"),Request.Form("acao")))
         case else
 
     end select

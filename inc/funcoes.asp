@@ -1,6 +1,6 @@
 ﻿<!--#include file="md5.asp"  -->
 <%
-dim conn,nome,email,idUsuario,perfil,status,senha,observacao,sql,mensagem,erro,rs,acao,msgAcao,id,query,tabela,col
+dim conn,nome,email,idUsuario,perfil,status,senha,observacao,sql,mensagem,erro,rs,acao,msgAcao,id,query,tabela,col,tableDB,action, parametro,produto,categoria,valor,descricao
 mensagem=""
 erro=0
 id=0
@@ -40,6 +40,17 @@ sub conectaDados
 end sub
 
 sub desconectaDados
+    conn.Close
+    Set conn = Nothing
+end sub
+
+    'terceiro nível
+sub conectaIII
+    set conn = Server.CreateObject("ADODB.Connection")
+    conn.Open "Provider=Microsoft.Jet.OLEDB.4.0;Data Source="& Server.MapPath("../../../db/pizzaria.mdb")& ";Jet OLEDB:Database Password=pizzaria;"
+end sub
+
+sub desconectaIII
     conn.Close
     Set conn = Nothing
 end sub
@@ -156,6 +167,89 @@ function processa_usuario(nome,email,perfil,status,senha,observacao,id,acao)
     end if
 
 end function
+
+
+function processa_produto(produto,categoria,valor,descricao,id,acao)
+    
+    if not IsNumeric(id) then
+        mensagem= mensagem & "<br />ID inválido."
+        erro=1
+    end if
+   if acao <> "cadastrar" and acao<>"editar" then
+        mensagem= mensagem & "<br />Ação inválida."
+        erro=1
+    end if
+    if Len(produto) < 2 and Len(produto) > 150 then
+        mensagem= mensagem & "<br />O produto deve conter entre 2 e 150 caracteres."
+        erro=1
+    end if
+    if Len(categoria) < 5 and Len(categoria) > 15 then
+        mensagem= mensagem & "<br />A categoria informada é inválida."
+        erro=1
+    end if
+    if Len(descricao) > 4000 then
+        mensagem= mensagem & "<br />A observação deve conter no máximo 400 caracteres."
+        erro=1
+    end if
+
+    if erro=0 then
+        Call conecta        
+        On Error Resume Next 
+
+            if id=0 or acao="cadastrar" then
+                sql="INSERT INTO PRODUTOS (PRODUTO,CATEGORIA,VALOR,DESCRICAO) VALUES ('"& produto &"','"& categoria  &"', "& valor &",'"& descricao &"')"
+                msgAcao="Cadastro efetuado com sucesso!"
+            else
+                sql="UPDATE PRODUTOS SET PRODUTO='"& produto &"',CATEGORIA='"& categoria &"',VALOR="& valor  &",DESCRICAO='"& descricao &"' WHERE ID="&id&" "
+                msgAcao="Atualização efetuada com sucesso!"
+            end if
+           Set rs=conn.Execute(sql)
+
+          If Err.Number <> 0 Then  
+              processa_produto = "<p class='retornoDB'><b>"& Err.Description 
+              processa_produto=processa_produto&"</b><br /><script type='text/javascript'>window.setTimeout('history.back();', 2000);</script>"
+         else
+                if  acao="cadastrar" then
+                    processa_produto = "<p class='retornoDB'><b>"&  msgAcao & "</b><br /><script type='text/javascript'>window.setTimeout('window.location.href = \'home.asp?id=cadastrar-produtos\'' , 2000);</script>"
+                else
+    
+                    processa_produto = "<p class='retornoDB'><b>"&  msgAcao & "</b><br /><script type='text/javascript'>window.setTimeout('history.back();', 2000);</script>"
+                end if
+         end if
+        Call desconecta
+    else
+             processa_produto = "<p class='retornoDB'><b>Foram encontrados os seguintes erros:</b><br />"& mensagem & "</p><script type='text/javascript'>window.setTimeout('history.back();', 3000);</script>"
+    end if
+
+end function
+
+
+' A função exclusão funcionará para todas as tabelas cadastradas
+function exclusao(tableDB,id)
+       erro=0
+       if not IsNumeric(id) then
+            mensagem= mensagem & " ID inválido."
+            erro=1
+        end if
+       if tableDB <> "ENDERECOS" and tableDB<>"PRODUTOS" and tableDB<>"ITENS" and tableDB<>"DOCUMENTOS" and tableDB<>"PEDIDOS" and tableDB<>"USUARIOS" then
+            mensagem= mensagem & " A tabela "&tableDB&" não existe!"
+            erro=1
+       end if
+      if erro=0 then
+      Call conectaDados 
+       sql="DELETE FROM "&tableDB&" WHERE ID="& parametro &""
+       Set rs=conn.Execute(sql)
+      Call desconectaDados
+          If Err.Number <> 0 Then  
+              exclusao = "Código"& Err.Description 
+         else
+              exclusao ="Exclusão realizada com sucesso"
+         end if
+      else         
+            exclusao= "Foram encontrados os seguintes erros:"& mensagem
+      end if
+        
+    end function
 
 %>
 

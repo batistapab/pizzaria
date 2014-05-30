@@ -26,9 +26,18 @@ function listar_usuarios(id)
 end function  
      
  id=Request.Form("q")
+ action=Request.Form("action")
+ parametro=Request.Form("parametro")
  if id="" then
-    id=idUsuario
+    id=idUsuario 
+    'Esse ## idUsuario  ## é o id do usuário logado, foi gerado no arquivo logar e reuisitado no arquivo segurança
  end if
- Response.Write listar_usuarios(id)
+
+if action="excluir" and IsNumeric(parametro) then
+    tableDB="USUARIOS"
+    Response.Write exclusao(tableDB,id)
+else
+     Response.Write listar_usuarios(id)
+end if
    
 %>
