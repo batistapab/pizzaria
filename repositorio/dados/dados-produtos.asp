@@ -14,9 +14,9 @@ function listar_produtos(id)
         On Error Resume Next 
 
             if id=0 then   
-               listar_produtos = QueryToJSON(conn, "SELECT ID,PRODUTO,CATEGORIA,SWITCH(CATEGORIA = 1, 'Alimento',CATEGORIA = 2, 'Bebida',CATEGORIA=3,'Ingrediente') AS CATEGORIA_EXT,VALOR, DESCRICAO FROM PRODUTOS").Flush   
+               listar_produtos = QueryToJSON(conn, "SELECT ID,PRODUTO,FOTO,CATEGORIA,SWITCH(CATEGORIA = 1, 'Alimento',CATEGORIA = 2, 'Bebida',CATEGORIA=3,'Ingrediente') AS CATEGORIA_EXT,VALOR, DESCRICAO FROM PRODUTOS").Flush   
             else
-               listar_produtos = QueryToJSON(conn, "SELECT ID, PRODUTO,CATEGORIA,SWITCH(CATEGORIA = 1, 'Alimento',CATEGORIA = 2, 'Bebida',CATEGORIA=3,'Ingrediente') AS CATEGORIA_EXT,VALOR, DESCRICAO FROM PRODUTOS WHERE ID="&id&" ").Flush             
+               listar_produtos = QueryToJSON(conn, "SELECT ID, PRODUTO,FOTO,CATEGORIA,SWITCH(CATEGORIA = 1, 'Alimento',CATEGORIA = 2, 'Bebida',CATEGORIA=3,'Ingrediente') AS CATEGORIA_EXT,VALOR, DESCRICAO FROM PRODUTOS WHERE ID="&id&" ").Flush             
             end if
         Call desconectaDados
     else

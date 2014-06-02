@@ -1,6 +1,6 @@
 ﻿<!--#include file="md5.asp"  -->
 <%
-dim conn,nome,email,idUsuario,perfil,status,senha,observacao,sql,mensagem,erro,rs,acao,msgAcao,id,query,tabela,col,tableDB,action, parametro,produto,categoria,valor,descricao
+dim conn,nome,email,idUsuario,perfil,status,senha,observacao,sql,mensagem,erro,rs,acao,msgAcao,id,query,tabela,col,tableDB,action, parametro,produto,foto,categoria,valor,descricao
 mensagem=""
 erro=0
 id=0
@@ -169,7 +169,7 @@ function processa_usuario(nome,email,perfil,status,senha,observacao,id,acao)
 end function
 
 
-function processa_produto(produto,categoria,valor,descricao,id,acao)
+function processa_produto(produto,foto,categoria,valor,descricao,id,acao)
     
     if not IsNumeric(id) then
         mensagem= mensagem & "<br />ID inválido."
@@ -181,6 +181,10 @@ function processa_produto(produto,categoria,valor,descricao,id,acao)
     end if
     if Len(produto) < 2 and Len(produto) > 150 then
         mensagem= mensagem & "<br />O produto deve conter entre 2 e 150 caracteres."
+        erro=1
+    end if
+    if Len(foto) < 5 and Len(foto) > 150 then
+        mensagem= mensagem & "<br />A foto deve conter entre 5 e 150 caracteres."
         erro=1
     end if
     if Len(categoria) < 5 and Len(categoria) > 15 then
@@ -197,10 +201,10 @@ function processa_produto(produto,categoria,valor,descricao,id,acao)
         On Error Resume Next 
 
             if id=0 or acao="cadastrar" then
-                sql="INSERT INTO PRODUTOS (PRODUTO,CATEGORIA,VALOR,DESCRICAO) VALUES ('"& produto &"','"& categoria  &"', "& valor &",'"& descricao &"')"
+                sql="INSERT INTO PRODUTOS (PRODUTO,FOTO,CATEGORIA,VALOR,DESCRICAO) VALUES ('"& produto &"','"& foto &"','"& categoria  &"', "& valor &",'"& descricao &"')"
                 msgAcao="Cadastro efetuado com sucesso!"
             else
-                sql="UPDATE PRODUTOS SET PRODUTO='"& produto &"',CATEGORIA='"& categoria &"',VALOR="& valor  &",DESCRICAO='"& descricao &"' WHERE ID="&id&" "
+                sql="UPDATE PRODUTOS SET PRODUTO='"& produto &"',FOTO='"& foto &"',CATEGORIA='"& categoria &"',VALOR="& valor  &",DESCRICAO='"& descricao &"' WHERE ID="&id&" "
                 msgAcao="Atualização efetuada com sucesso!"
             end if
            Set rs=conn.Execute(sql)

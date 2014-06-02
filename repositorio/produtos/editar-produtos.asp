@@ -8,6 +8,8 @@
     <input type="hidden" name="idproduto" id="idproduto" value="0" />
     <div><label for="produto">Produto</label></div>
     <div><input type="text" name="produto" id="produto" maxlength="150" required /> </div>
+    <div><label for="foto">Foto</label></div>
+    <div><input type="text" name="foto" id="foto" maxlength="150" required /> </div>
     <div><label for="categoria">Categoria</label></div>
     <div>
         <select name="categoria" id="categoria" required>
@@ -36,6 +38,7 @@
   success: function(retorno){
       $("#idproduto").val(retorno[0].ID); 
       $("#produto").val(retorno[0].PRODUTO); 
+      $("#foto").val(retorno[0].FOTO);
       $("#categoria").val(retorno[0].CATEGORIA); 
       $("#valor").val(retorno[0].VALOR);
       $("#descricao").val(retorno[0].DESCRICAO); 

@@ -9,7 +9,6 @@
     <h2>Produtos</h2>
         <ul>
             <li><a href="?id=cadastrar-produtos" id="cadastrar-produtos">Cadastrar produtos</a></li>
-            <li><a href="?id=editar-produtos" id="editar-produtos">Editar produtos</a></li>
             <li><a href="?id=lista-de-produtos" id="lista-de-produtos">Lista de produtos</a></li>
         </ul>    
     <%end if %>

@@ -14,6 +14,11 @@
     <div id="main">
         <!--#include file="inc/topo.asp"  -->
         <div id="conteudo">
+            <div id="verificacep">
+                <p><b>Verifique se a entrega está disponível para o seu endereço: </b>
+                   <label for="cep">CEP:</label> <input type="text" name="cep" id="cep" class="cep" placeholder="00000-000" maxlength="9" title="CEP" />  <span id="retornocep"></span>            
+                </p>
+            </div>
                <div class="cardapio">
                    <h2>Pizzas tradicionais</h2>
                    <img src="img/pizza.jpg" alt="pizzas tradicionais" title="pizzas tradicionais" />
@@ -22,11 +27,11 @@
                    <h2>Monte sua pizza</h2>
                    <img src="img/ingredientes.png" alt="Ingredientes" title="Ingredientes" />
                </div>
-               <div id="listaPedido">
+               <div id="produtos">
 
                </div>
         </div>
-        
+    <script src="js/verificacep.js"></script>
     <!--#include file="inc/footer.asp"  -->
     </div>
     <!--#include file="inc/scripts.asp"  -->

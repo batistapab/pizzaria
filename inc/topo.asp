@@ -9,14 +9,16 @@
                     <ul>
                         <li><a href="index.asp">Principal</a></li>
                         <li><a href="historia.asp">História</a></li>
-                        <li><a href="cardapio.asp">Cardápio</a></li>
-                        <li><a href="pedidos.asp">Pedidos</a></li>
-                         <% if Request.Cookies("nome")<>"" then %>
+                        <li><a href="cardapio.asp">Cardápio</a></li>                        
+                        <li><a href="contatos.asp">Contatos</a></li>
+                         <% if Request.Cookies("nome")<>"" then %>                        
+                       <!-- <li><a href="pedidos.asp">Pedidos</a></li>-->
                         <li><a href="home.asp">Minha página</a></li>
                         <li><a href="sair.asp">Sair</a></li>
                         <% else %>
                         <li><a href="login.asp">Login</a></li>
                          <%end if %>
+
                     </ul>
                 </nav>
         </div>

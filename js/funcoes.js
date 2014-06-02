@@ -50,10 +50,10 @@
                 $("#listadeprodutos").append("<table>");
                 $("#listadeprodutos table").attr("class", "listas");
                 $("#listadeprodutos .listas").append("<thead>");
-                $("#listadeprodutos .listas thead").append("<tr><th>Produto</th><th>Categoria</th><th>Preço</th><th>Descrição</th><th></th></tr>");
+                $("#listadeprodutos .listas thead").append("<tr><th style='width:40px'></th><th style='width:160px'>Produto</th><th style='width:80px'>Preço</th><th>Descrição</th><th style='width:60px'></th></tr>");
                 $("#listadeprodutos .listas").append("<tbody>");
                 $.each(retorno, function (i, prod) {
-                    var tbody = "<tr><td>" + prod.PRODUTO + "</td><td>" + prod.CATEGORIA_EXT + "</td><td> R$ " + prod.VALOR + "</td><td>" + prod.DESCRICAO + "</td>"
+                    var tbody = "<tr><td><img src='img/produtos/" + prod.CATEGORIA_EXT.toLowerCase() + "/" + prod.FOTO + "' alt='" + prod.PRODUTO + "' title='" + prod.PRODUTO + "' class='imgProdutos' /></td><td title='" + prod.PRODUTO + "'>" + prod.PRODUTO.substr(0,22) + "</td><td> R$ " + prod.VALOR + "</td><td>" + prod.DESCRICAO + "</td>"
                     tbody += "</td><td><a href='repositorio/produtos/editar-produtos.asp?q=" + prod.ID + "' class='ver'>"
                     tbody += "<img src='img/edit.png' alt='Editar' /></a>"
                     tbody += "<a href='javascript:void(0)' onclick='ExcluirProduto(" + prod.ID + ");'><img src='img/trash.png' alt='Excluir' /></a></td></tr>";
@@ -73,6 +73,29 @@
         }
     });
 });//Fim jquery
+
+function ExcluirUsuario(x) {
+    var id = x;
+    if (confirm("Você tem certeza absoluta que deseja excluir este usuário?")) {
+        var xmlhttp = new XMLHttpRequest();
+        var url = "repositorio/dados/dados-usuarios.asp";
+        var params = "action=excluir & parametro=" + id;
+        xmlhttp.open("POST", url, true);
+        //Send the proper header information along with the request
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.setRequestHeader("Content-length", params.length);
+        xmlhttp.setRequestHeader("Connection", "close");
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                alert(xmlhttp.responseText);
+                window.location.reload();
+            }
+        }
+        xmlhttp.send(params);
+    } else {
+        return false;
+    }
+};   //Fim excluir produto
 
 function ExcluirProduto(x) {
     var id = x;

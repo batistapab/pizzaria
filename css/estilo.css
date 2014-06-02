@@ -452,9 +452,10 @@ padding: 5px 0 5px 0;
 }
 .listas{
     width:100%; 
-    text-align:center;
+    text-align:left;
     border-spacing:0;
     border-collapse:collapse;
+    text-indent:5px;
 }
 .listas tr th{padding:5px 0 5px;
               background-color:rgb(146, 100, 4);
@@ -464,7 +465,8 @@ padding: 5px 0 5px 0;
 .listas tr td{
     padding:5px 0 5px;
 }
-.listas tr td:first-child{text-align:left;text-indent:20px;}
+
+.listas tr td:first-child{text-align:center;text-indent:5px;}
 
 
 /**Formulários de edição **/
@@ -511,3 +513,36 @@ form#editar-produto div label{padding-left:15px;}
 .listas tbody tr:nth-child(odd){ background-color: rgba(255,255,255,0.8);}
 
 #retornolista .listas tbody tr td:first-child{text-transform:capitalize;}
+
+.imgProdutos{height:40px}
+
+/** cardápio*/
+#verificacep {
+    background-color: rgba(230, 158, 18, 0.6);
+    color: #b50b0b;
+    font-family: 'Averia Sans Libre',cursive;
+    font-size: 1.2em;
+    padding: 5px 0;
+    text-shadow: 1px 1px rgba(252, 239, 136,0.7);
+    text-indent:20px;
+}
+
+#verificacep p>label{padding-left:100px;}
+.cep{
+width: 60px;
+text-align: center;
+padding: 5px 20px 5px 20px;
+
+}
+.sucess{
+    background:url('../img/sucess.png') no-repeat left center;
+    padding: 40px 0px 40px 60px;
+    font-size: 15px;
+    color:#3a9805;
+}
+.fail{    
+    background:url('../img/fail.png') no-repeat left center;
+    padding: 40px 0px 40px 60px;
+    font-size: 15px;
+    color:#a32306;
+}
