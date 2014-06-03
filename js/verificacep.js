@@ -3,17 +3,14 @@
         //Quando o usuário digitar ou parar de fazê-lo, obtenho os dados digitados
         var cep = $("#verificacep #cep").val();
         var limpaRetornoDoCep = function () {
-            $('#retornocep').text("");
+            $('#retornocep').text("").fadeOut(1000);
             if ($('#retornocep').hasClass("sucess") == true) {
                 $('#retornocep').removeClass("sucess");
             } else {
                 $('#retornocep').removeClass("fail");
             }
         };
-
-
         limpaRetornoDoCep();
-
         //Tiramos os espaço em branco
         cep = cep.trim();
 
@@ -26,14 +23,16 @@
             var localizou = listaDeCeps.indexOf(cep);
             if (localizou > -1) {
                 $("#retornocep").attr("class", "sucess");
-                $("#retornocep").append("Entrega disponível!");                
+                $("#retornocep").append("Entrega disponível!").fadeIn(1000);
             }
             else {
                 $("#retornocep").attr("class", "fail");
                 $("#verificacep #cep").val("");
-                $("#retornocep").append("Entrega não disponível!");
+                $("#retornocep").append("Entrega não disponível!").fadeIn(1000);
             }
         }
     });
+
+
 
 });

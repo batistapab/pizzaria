@@ -238,7 +238,7 @@ nav.menu ul li:last-child{border-right: none;}
     width:100%;
     border-radius:5px;
 }
-#atendimento>h2,#formasDePagamento>h2,#newsletter>h2,.box-conteudo h2{
+#atendimento>h2,#formasDePagamento>h2,#newsletter>h2,.box-conteudo h2,#opedido h2{
     font-family: 'Averia Sans Libre', cursive;
     color: rgb(255,255,255);
     text-shadow:1px 1px #808080;
@@ -521,22 +521,22 @@ form#editar-produto div label{padding-left:15px;}
     background-color: rgba(230, 158, 18, 0.6);
     color: #b50b0b;
     font-family: 'Averia Sans Libre',cursive;
-    font-size: 1.2em;
-    padding: 5px 0;
+    font-size: 14px;
+    padding: 2px 0;
     text-shadow: 1px 1px rgba(252, 239, 136,0.7);
     text-indent:20px;
 }
 
-#verificacep p>label{padding-left:100px;}
+#verificacep p>label{padding-left:20px;}
 .cep{
-width: 60px;
+width: 90px;
 text-align: center;
 padding: 5px 20px 5px 20px;
 
 }
 .sucess{
     background:url('../img/sucess.png') no-repeat left center;
-    padding: 40px 0px 40px 60px;
+    padding: 5px 0px 5px 60px;
     font-size: 15px;
     color:#3a9805;
 }
@@ -546,3 +546,46 @@ padding: 5px 20px 5px 20px;
     font-size: 15px;
     color:#a32306;
 }
+#produtos-cardapio {
+background-color: rgba(252, 239, 136,0.6);
+min-height: 590px;
+width: 54%;
+position: absolute;
+top: 10px;
+margin-left: 255px;
+border-radius:5px;
+}
+/* o pedido  */
+body>#main>#conteudo>#opedido {
+width: 210px;
+min-height: 560px;
+position: absolute;
+right: 0px;
+top: 10px;
+bottom: 10px;
+background-color: rgba(252, 239, 136,0.6);
+}
+body>#main>#conteudo>#opedido p{margin:20px 0 20px 0;color:#000;}
+body>#main>#conteudo>#opedido p img{margin:0 15px 0 15px;vertical-align:middle}
+.imgCarrinho{width:40px;height:30px;vertical-align:text-bottom}
+#calculando{position:absolute;bottom:0px;width:100%;border-top: 2px solid rgba(230,158,18,0.6);}
+body>#main>#conteudo>#opedido #calculando p,body>#main>#conteudo>#opedido #itens-pedido p {margin:3px 0 3px; text-indent:20px;
+}
+#totalpedido{width:100%;background-color: rgba(230,158,18,0.6);}
+#calculando button{background-color: rgb(230,158,18);border:none;color:#fff;box-shadow:2px 2px 2px #333;margin:0 auto 10px auto;}
+#calculando button:active,#calculando button:hover{box-shadow:inset 0px 0px 2px 0px #333;text-shadow:1px 1px #777;cursor:pointer;}
+.excluir{width:20px;height:20px;float:right;border:none;}
+
+#itens-pedido div {
+    padding: 2px 0 2px;
+}
+#itens-pedido div p:first-child{
+    font-weight:bold;
+}
+#itens-pedido div:nth-child(odd){ background-color: rgba(255,255,255,0.8);}
+
+/*Manipulando o accordion*/
+
+.ui-accordion-header{font-size:15px;}
+.ui-widget .ui-widget-content{background:rgba(230,158,18,0.6);font-weight:normal; font-family:sans-serif;font-size: 0.8em;}
+
