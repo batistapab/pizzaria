@@ -30,35 +30,13 @@
                     </div>
                    <div class="ac-container">                       
                        <label>Pizzas tradicionais</label>
-                       <div>
-                           <section id="pizzasTradicionais" class="produtos-cardapio">
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                           </section>
-                       </div>                           
+                           <section id="pizzasTradicionais" class="produtos-cardapio"></section>                 
                        <label>Bebidas</label>
-                       <div>
-                           <section id="bebidas-cardapio" class="produtos-cardapio">
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                           </section>
-                        </div>                       
+                           <section id="bebidas-cardapio" class="produtos-cardapio"></section> 
+                      <!--             
                        <label>Monte sua pizza</label>
-                       <div>
-                           <section id="montesuapizza" class="produtos-cardapio">
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                               <p>Blsalsdldfdfjj fjfjhfdsjhfs dbjkfdsfdskh fdjhfdhfds dfhjfdhfds hdhjhfdh dhfdhdfs</p>
-                           </section>
-                       </div>
+                           <section id="montesuapizza" class="produtos-cardapio"></section>
+                       -->
                    </div>
                </div>
                <div id="opedido">
@@ -84,11 +62,12 @@
                        <p>Subtotal: <label id="subtotal">R$ 61,00</label></p>
                        <p>Tx. de entrega: <label id="txdeentrega">R$ 6,00</label></p>
                        <p id="totalpedido">Total: <label>R$ 67,00</label></p>
-                       <button>Finalizar pedido</button>
+                       <button class="button">Finalizar pedido</button>
+                       <br />
                    </div>
                </div>
         </div>
-    <script src="js/verificacep.js"></script>    
+    <script src="js/cardapio.js"></script>    
 	<script src="jquery_ui/ui/jquery.ui.core.js"></script>
 	<script src="jquery_ui/ui/jquery.ui.widget.js"></script>
 	<script src="jquery_ui/ui/jquery.ui.accordion.js"></script>    

@@ -1,7 +1,7 @@
 *{margin: 0;padding: 0} /*Aqui zeramos a margin e o padding de todos os elementos */
 body{
     background:  rgba(230,158,18,0.5) url('../img/background.jpg') repeat-y;  
-	background-size: 100% 1500px;
+	background-size: 1600px 1600px;
     min-width: 880px;
     height: 100%;
 }
@@ -555,6 +555,56 @@ top: 10px;
 margin-left: 255px;
 border-radius:5px;
 }
+/* Formatando a lista de produtos no cardápio*/
+.produtos-cardapio{
+    position:relative;
+    left:0;
+    right:0;
+    height:calc(100% - 140px);
+}
+.produtos-cardapio div{
+    width:100%;
+    margin-bottom:15px;
+    min-height:120px;
+    float:left;
+}
+.produtos-cardapio div img{
+    float:left;
+    margin:10px;
+    height:70px;
+    width:70px;
+    border-radius:50%;
+    padding:5px;
+    background-color:#fff;
+    border:solid 2px #ddd;
+    box-shadow:2px 2px #444;
+}
+.produtos-cardapio div h3{width: calc(100% - 103px);float:right;margin:10px 0 10px 0}
+.produtos-cardapio div h3 span{float:right;margin:0 10px 0 10px}
+.produtos-cardapio:nth-child(odd){ background-color: rgba(255,255,255,0.8);}
+#qtde{width:50px}
+.produtos-cardapio div hr{margin:10px 0 10px;width: calc(100% - 125px);}
+.produtos-cardapio div p:last-child{padding-bottom:10px}
+.produtos-cardapio div button{position:absolute;right:20px}
+
+body #produtos-cardapio #bebidas-cardapio img{
+    float:left;
+    margin:0 10px 0 10px;
+    height:40px;
+    width:26px;
+}
+body #produtos-cardapio #bebidas-cardapio table span{font-weight:bold;}
+body #produtos-cardapio #bebidas-cardapio table {width:100%}
+body #produtos-cardapio #bebidas-cardapio table tr td:nth-child(1),body #produtos-cardapio #bebidas-cardapio table tr td:nth-child(3){width:62px}
+body #produtos-cardapio #bebidas-cardapio table tr td:nth-child(4){width:120px;}
+body #produtos-cardapio #bebidas-cardapio table tr td:nth-child(5){width:100px;}
+body #produtos-cardapio #bebidas-cardapio table:nth-child(odd){ background-color: rgba(255,255,255,0.8);}
+
+
+
+
+
+
 /* o pedido  */
 body>#main>#conteudo>#opedido {
 width: 210px;
@@ -569,10 +619,10 @@ body>#main>#conteudo>#opedido p{margin:20px 0 20px 0;color:#000;}
 body>#main>#conteudo>#opedido p img{margin:0 15px 0 15px;vertical-align:middle}
 .imgCarrinho{width:40px;height:30px;vertical-align:text-bottom}
 #calculando{position:absolute;bottom:0px;width:100%;border-top: 2px solid rgba(230,158,18,0.6);}
-body>#main>#conteudo>#opedido #calculando p,body>#main>#conteudo>#opedido #itens-pedido p {margin:3px 0 3px; text-indent:20px;
+body>#main>#conteudo>#opedido #calculando p,body>#main>#conteudo>#opedido #itens-pedido p {margin:3px 0 3px; text-indent:5px; font-size:12px;
 }
 #totalpedido{width:100%;background-color: rgba(230,158,18,0.6);}
-#calculando button{background-color: rgb(230,158,18);border:none;color:#fff;box-shadow:2px 2px 2px #333;margin:0 auto 10px auto;}
+.button{background-color: rgb(230,158,18);border:none;color:#fff;box-shadow:2px 2px 2px #333;}
 #calculando button:active,#calculando button:hover{box-shadow:inset 0px 0px 2px 0px #333;text-shadow:1px 1px #777;cursor:pointer;}
 .excluir{width:20px;height:20px;float:right;border:none;}
 
@@ -586,6 +636,14 @@ body>#main>#conteudo>#opedido #calculando p,body>#main>#conteudo>#opedido #itens
 
 /*Manipulando o accordion*/
 
-.ui-accordion-header{font-size:15px;}
-.ui-widget .ui-widget-content{background:rgba(230,158,18,0.6);font-weight:normal; font-family:sans-serif;font-size: 0.8em;}
+#produtos-cardapio .ac-container{min-height:500px;height:100%}
+#produtos-cardapio .ui-accordion-header{font-size:15px;}
+#produtos-cardapio .ui-widget .ui-widget-content{background:transparent;font-weight:normal; font-family:sans-serif;font-size: 0.8em;}
+#produtos-cardapio .ui-accordion .ui-accordion-content {
+padding:0px
+}
+#produtos-cardapio .ui-widget-content {
+    border:none
+}
+
 
