@@ -14,5 +14,6 @@
            "type": "iframe"
        });
         $(".cep").mask("99999-999");
+        $(".telefone").mask("(99) 99999-9999");
     });
     </script>

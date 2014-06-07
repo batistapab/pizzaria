@@ -40,6 +40,8 @@
                       Select Case id
                             'pedidos
                   %>
+	                       <% Case "pedidos" %>
+		                       <!--#include file="repositorio/pedidos/pedidos.asp"-->
 	                       <% Case "pedidos-recentes" %>
 		                       <!--#include file="repositorio/pedidos/pedidos-recentes.asp"-->
 	                       <%  Case "pedidos-pendentes" %>
@@ -56,6 +58,10 @@
 		                        <!--#include file="repositorio/usuarios/cadastrar-usuario.asp"-->
 	                       <%  Case "lista-de-usuarios" %>
 		                        <!--#include file="repositorio/usuarios/lista-de-usuarios.asp"-->
+	                       <%  Case "address" %>
+		                        <!--#include file="repositorio/usuarios/address.asp"-->
+	                       <%  Case "documentos" %>
+		                        <!--#include file="repositorio/usuarios/documentos.asp"-->
 
                       
                             <%   'produtos %>
@@ -95,7 +101,15 @@
            },
            "type": "iframe"
        });
-        });
+
+       <% if id<>"pedidos" then %>
+            var tbProdutos = localStorage.getItem("tbProdutos"); 
+            tbProdutos = JSON.parse(tbProdutos); 
+            if (tbProdutos != null) 
+           window.location.href = "home.asp?id=pedidos";
+      <% end if %>
+      });
+
     </script>
 
 </body>

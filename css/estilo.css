@@ -18,7 +18,7 @@ body:before {
 html, body, #main{
 height:100%;
 }
-input[type="email"],input[type="text"],input[type="date"],input[type="number"],button,input[type="password"],input[type="reset"],input[type="submit"],select {
+input[type="email"],input[type="text"],input[type="date"],input[type="number"],button,input[type="password"],input[type="reset"],input[type="submit"],select,input[type="tel"] {
     padding:5px 10px 5px 10px;
 }
 #emailnewsletter {
@@ -251,7 +251,7 @@ nav.menu ul li:last-child{border-right: none;}
     height:150px;
 }
 #formasDePagamento {    
-    height:250px;
+    height:399px;
     margin:10px 0 10px 0;
 }
 #formasDePagamento p {
@@ -260,13 +260,15 @@ padding:0 5px 0 5px;
 margin:5px 0 8px;
 color: rgb(146, 100, 4);
 text-align:justify;
+line-height:22px;
 }
 #newsletter {
     width:100%;
     height:140px;
 }
 #formasDePagamento img {
-    margin-left:3.5px;
+    margin:10px 0 10px 3.5px;
+    line-height:50px;
 }
 #privacidade{
     margin: 0px;
@@ -301,51 +303,6 @@ padding: 5px 0 5px 0;
 }
 
 
-#formLogin{
-    margin-top:10px;
-    border-radius:5px;
-    width:800px;
-    height:560px;
-    background-color:rgba(252, 239, 136,0.6);
-}
-#formLogin a{
-    text-decoration:none;
-}
-
-#formLogin h2{
-font-family: 'Averia Sans Libre', cursive;
-color: rgb(255,255,255);
-text-shadow: 1px 1px #808080;
-font-size: 1.2em;
-text-align: center;
-background-color: rgba(230,158,18,0.6);
-padding: 5px 0 5px 0;
-}
-#formLogin fieldset{
-    width:400px;
-    margin:100px auto;
-    border:none;
-    line-height:30px;
-}
-#formLogin fieldset div{
-    position:relative;
-}
-input[type='email'],#nome {
-    width:400px;
-}
-#formLogin fieldset input{
-    display:block;
-    position:relative;    
-    margin-bottom:10px;
-}
-#formLogin fieldset button{
-    margin-top:20px;
-}
-#formLogin label.error {
-	top: -20px;
-	width: auto;
-    color:#cc0000
-}
 
 #menuServicos{
     width:210px;
@@ -555,7 +512,13 @@ top: 10px;
 margin-left: 255px;
 border-radius:5px;
 }
+.ac-container>label{background-color:#fff;border:solid 1px rgb(230,158,18);border-radius:5px; display:inline-block; width:100%;padding:5px 0 5px;text-align:center;font-size:larger;margin:5px 0 5px;font-weight:bold;color:rgb(230,158,18);text-shadow:rgb(146, 100, 4) 1px 1px}
+
+
 /* Formatando a lista de produtos no cardápio*/
+#pizzasTradicionais{
+    margin:0 10px 0;
+}
 .produtos-cardapio{
     position:relative;
     left:0;
@@ -564,27 +527,26 @@ border-radius:5px;
 }
 .produtos-cardapio div{
     width:100%;
-    margin-bottom:15px;
-    min-height:120px;
+    min-height:101px;
     float:left;
 }
 .produtos-cardapio div img{
     float:left;
-    margin:10px;
-    height:70px;
-    width:70px;
+    margin:5px 10px 5px 10px;
+    height:35px;
+    width:35px;
     border-radius:50%;
-    padding:5px;
+    padding:2px;
     background-color:#fff;
-    border:solid 2px #ddd;
-    box-shadow:2px 2px #444;
+    border:solid 1px #ddd;
+    box-shadow:1px 1px #444;
 }
-.produtos-cardapio div h3{width: calc(100% - 103px);float:right;margin:10px 0 10px 0}
-.produtos-cardapio div h3 span{float:right;margin:0 10px 0 10px}
-.produtos-cardapio:nth-child(odd){ background-color: rgba(255,255,255,0.8);}
-#qtde{width:50px}
-.produtos-cardapio div hr{margin:10px 0 10px;width: calc(100% - 125px);}
-.produtos-cardapio div p:last-child{padding-bottom:10px}
+.produtos-cardapio div h3{width: calc(100% - 110px);}
+.produtos-cardapio div h3 label{float:right;margin:0 10px 0 10px}
+.produtos-cardapio div:nth-child(odd){ background-color: rgba(255,255,255,0.8);}
+.qtde{width:50px}
+.produtos-cardapio div hr{margin:10px 0 10px;}
+.produtos-cardapio div p:last-child{padding-bottom:10px;margin-left:20px}
 .produtos-cardapio div button{position:absolute;right:20px}
 
 body #produtos-cardapio #bebidas-cardapio img{
@@ -618,14 +580,14 @@ background-color: rgba(252, 239, 136,0.6);
 body>#main>#conteudo>#opedido p{margin:20px 0 20px 0;color:#000;}
 body>#main>#conteudo>#opedido p img{margin:0 15px 0 15px;vertical-align:middle}
 .imgCarrinho{width:40px;height:30px;vertical-align:text-bottom}
-#calculando{position:absolute;bottom:0px;width:100%;border-top: 2px solid rgba(230,158,18,0.6);}
+#calculando{position:absolute;bottom:0px;width:100%;border-top: 2px solid rgba(230,158,18,0.6);background-color:rgba(255,255,255,0.6)}
 body>#main>#conteudo>#opedido #calculando p,body>#main>#conteudo>#opedido #itens-pedido p {margin:3px 0 3px; text-indent:5px; font-size:12px;
 }
-#totalpedido{width:100%;background-color: rgba(230,158,18,0.6);}
+#totalpedido{width:100%;background-color: rgba(230,158,18,0.6);padding:5px 0 5px 0}
 .button{background-color: rgb(230,158,18);border:none;color:#fff;box-shadow:2px 2px 2px #333;}
-#calculando button:active,#calculando button:hover{box-shadow:inset 0px 0px 2px 0px #333;text-shadow:1px 1px #777;cursor:pointer;}
-.excluir{width:20px;height:20px;float:right;border:none;}
-
+.button:active,.button:hover{box-shadow:inset 0px 0px 2px 0px #333;text-shadow:1px 1px #777;cursor:pointer;}
+.imgOperacoes{width:20px;height:20px;float:right;border:none;}
+body>#main>#conteudo>#opedido #itens-pedido div p .imgOperacoes{margin: 0 5px 0 0;cursor:pointer}
 #itens-pedido div {
     padding: 2px 0 2px;
 }
@@ -646,4 +608,68 @@ padding:0px
     border:none
 }
 
+/**Manipulando tab no login*/
+.ui-widget-content{
+    margin-top:5px;
+    border-radius:5px;
+    background:rgba(252, 239, 136,0.6);    
+    padding: 0 1.4em 0 1.4em;
+}
+.ui-widget-content a{
+    text-decoration:none;
+}
 
+.ui-widget-content h2{
+font-family: 'Averia Sans Libre', cursive;
+color: rgb(255,255,255);
+text-shadow: 1px 1px #808080;
+font-size: 1.2em;
+text-align: center;
+background-color: rgba(230,158,18,0.6);
+padding: 5px 0 5px 0;
+}
+
+input[type='email'],#nome {
+    width:400px; 
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button{
+    font-family: sans-serif; 
+   font-size: 0.8em; 
+}
+.ui-widget-content input{
+    display:block;
+    position:relative; 
+}
+.ui-widget-content button{
+    margin-top:20px;
+}
+.ui-widget-content label.error {
+	top: -20px;
+	width: auto;
+    color:#cc0000
+}
+
+.ui-tabs .ui-tabs-panel{
+    padding:0px;
+}
+.ui-tabs-panel div{
+    line-height:24px
+}
+.ui-widget {
+font-family: sans-serif; 
+font-size: 0.9em; 
+}
+#tabs{width:760px;
+    height:562px;}
+
+.ui-tabs table caption{text-align:left;font-weight:bold;font-size: 1.2em;margin-bottom:10px;}
+
+.ui-tabs table input[type='email'],.ui-tabs table #nome {
+    width:300px; 
+}
+.ui-tabs table tr th{font-weight:normal;text-align:left;}
+
+.ui-tabs table{background-color:rgba(255,255,255,0.6);width:100%;padding:10px;border-radius:5px;margin-bottom:20px;box-shadow:2px 2px #444}
+
+.ui-tabs table tr td #referencia{width:600px}

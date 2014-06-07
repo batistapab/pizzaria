@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<!--#include file="inc/funcoes.asp"  -->
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <!--#include file="inc/metatags.asp"  -->
@@ -30,9 +31,20 @@
                     </div>
                    <div class="ac-container">                       
                        <label>Pizzas tradicionais</label>
-                           <section id="pizzasTradicionais" class="produtos-cardapio"></section>                 
+                           <section id="pizzasTradicionais" class="produtos-cardapio">
+                               <% 
+                                      Response.Write listar_produtos(1)
+  
+                                %>
+
+                           </section>                 
                        <label>Bebidas</label>
-                           <section id="bebidas-cardapio" class="produtos-cardapio"></section> 
+                           <section id="bebidas-cardapio" class="produtos-cardapio"> 
+                               <% 
+                                      Response.Write listar_produtos(2)
+                               %>
+
+                           </section> 
                       <!--             
                        <label>Monte sua pizza</label>
                            <section id="montesuapizza" class="produtos-cardapio"></section>
@@ -43,39 +55,21 @@
                    <h2>Tempo de entrega</h2>
                    <p><img src="img/clock.png" alt="tempo" title="tempo para entrega" /> De 45 à 60 minutos</p>     
                    <h2>Seu pedido <img src="img/carrinho.png" class="imgCarrinho" alt="Seu pedido" title="Seu pedido" /></h2>
-                   <div id="itens-pedido">
-                       <div>
-                           <p>Pizza de mussarela <a href="#"><img src="img/fail.png" class="excluir" alt="excluir" title="excluir" /></a></p>
-                           <p>Qtde: 2   R$ 40,00</p>
-                       </div>
-                       <div>
-                           <p>Coca-cola 2 Litro  <a href="#"><img src="img/fail.png" class="excluir" alt="excluir" title="excluir" /></a></p>
-                           <p>Qtde: 2   R$ 14,00</p>
-                       </div>
-                       <div>
-                           <p>Coca-cola Lata  <a href="#"><img src="img/fail.png" class="excluir" alt="excluir" title="excluir" /></a></p>
-                           <p>Qtde: 2   R$ 7,00</p>
-                       </div>
-                   </div>
+                   <div id="itens-pedido"></div>
                    <div id="calculando">
-                       <p>Itens: <label id="qtdedeitens">6</label></p>
-                       <p>Subtotal: <label id="subtotal">R$ 61,00</label></p>
-                       <p>Tx. de entrega: <label id="txdeentrega">R$ 6,00</label></p>
-                       <p id="totalpedido">Total: <label>R$ 67,00</label></p>
-                       <button class="button">Finalizar pedido</button>
+                       <p><b>Itens: <label id="numeroDeItens"></label></b></p>
+                       <p><b>Subtotal: R$ <label id="subtotal"></label></b></p>
+                       <p><b>Tx. de entrega: <label id="txdeentrega">R$ 6,00</label></b></p>
+                       <p id="totalpedido"><b>Total: R$ <label id="valorTotal"></label></b></p>
+                        
+                       <button class="button" id="btnFinalizar">Finalizar pedido</button>
+                      
                        <br />
                    </div>
                </div>
         </div>
-    <script src="js/cardapio.js"></script>    
-	<script src="jquery_ui/ui/jquery.ui.core.js"></script>
-	<script src="jquery_ui/ui/jquery.ui.widget.js"></script>
-	<script src="jquery_ui/ui/jquery.ui.accordion.js"></script>    
-	<script>
-	$(function() {
-		$( ".ac-container" ).accordion();
-	});
-	</script>
+    <script src="js/storage.js"></script>    
+
     <!--#include file="inc/footer.asp"  -->
     </div>
     <!--#include file="inc/scripts.asp"  -->

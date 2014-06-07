@@ -21,11 +21,4 @@
                     <img src="img/cartoes/vr.png" alt="" />
                     
                 </div>
-                <div id="newsletter">
-                    <h2>Receba promoções</h2>
-                    <form>
-                        <input type="email" name="emailnewsletter" id="emailnewsletter" placeholder="digite seu e-mail" required /> 
-                        <button id="cadNewsletter">Cadastrar</button>
-                    </form>
-                </div>
             </div>            
