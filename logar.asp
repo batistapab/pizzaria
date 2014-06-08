@@ -21,6 +21,7 @@
         <!--#include file="inc/topo.asp"  -->
         <div id="conteudo">
 <%
+     
     if Request.Form("email")<>"" and  Request.Form("senha")<>"" and (Request.Form("op")=1 or Request.Form("op")=2 and IsNumeric(Request.Form("op"))) then
 
     
@@ -80,11 +81,12 @@
              Response.Cookies("nome") = rs("NOME")
              Response.Cookies("email") = rs("EMAIL")
              Response.Cookies("perfil") = rs("PERFIL")
-             if op=2 then
+             
+           if op=2 then
                  Response.Write processa_endereco(0,cep, endereco, numero, complemento, bairro,cidade, estado, referencia,  rs("ID"), "cadastrar")
              end if
              
-
+             Response.Redirect("home.asp") 
        else 'Se o usuário estiver inativo ou bloqueado será direcionado a ligar para central
              Response.Write("O seu cadastro está inativo entre em contato com a nossa central de atendimento!<br />Telefones (011) 2222-2222 | 3333-3333!") 
              Response.AddHeader "Refresh","5 ; URL=login.asp"
@@ -104,7 +106,7 @@
     End If
 
     Call desconecta
-    Response.AddHeader "Refresh","4 ; URL=login.asp"
+     Response.AddHeader "Refresh","4 ; URL=login.asp"
     On Error GoTo 0
 
 else        

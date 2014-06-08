@@ -160,6 +160,20 @@ text-indent: 30px;
      margin-right:1%;
      border-radius:5px;
 }
+.box-conteudo p{
+ font-size: 15px;
+padding: 0 5px 0 5px;
+margin:10px 0 10px;
+color: rgb(146, 100, 4);
+text-align: justify;
+line-height: 22px;
+}
+.box-conteudo img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin-left:80px;
+}
 
 #footer{
     width:100%;
@@ -249,6 +263,13 @@ nav.menu ul li:last-child{border-right: none;}
 }
 #atendimento {
     height:150px;
+}
+#atendimento p {
+font-size: 15px;
+padding: 0 5px 0 5px;
+color: rgb(146, 100, 4);
+text-align: center;
+line-height: 22px;
 }
 #formasDePagamento {    
     height:399px;
@@ -377,6 +398,11 @@ padding: 5px 0 5px 0;
     font-weight:normal;
     background-color:rgba(230,158,18,0.5);
     padding:10px 0 10px;
+}
+#tabelaPedidos tfoot {
+    background-color: rgba(230, 158, 18, 0.5);
+    font-weight: normal;
+    padding: 10px 0;
 }
 #tabelaPedidos th,#tabelaPedidos td{
     border-right:solid 1px rgb(230,158,18)
@@ -586,6 +612,8 @@ body>#main>#conteudo>#opedido #calculando p,body>#main>#conteudo>#opedido #itens
 #totalpedido{width:100%;background-color: rgba(230,158,18,0.6);padding:5px 0 5px 0}
 .button{background-color: rgb(230,158,18);border:none;color:#fff;box-shadow:2px 2px 2px #333;}
 .button:active,.button:hover{box-shadow:inset 0px 0px 2px 0px #333;text-shadow:1px 1px #777;cursor:pointer;}
+.button-red{background-color: rgb(230,158,18);border:none;color:#fff;box-shadow:2px 2px 2px #333;}
+.button-red:active,.button-red:hover{box-shadow:inset 0px 0px 2px 0px #333;text-shadow:1px 1px #777;cursor:pointer;}
 .imgOperacoes{width:20px;height:20px;float:right;border:none;}
 body>#main>#conteudo>#opedido #itens-pedido div p .imgOperacoes{margin: 0 5px 0 0;cursor:pointer}
 #itens-pedido div {
@@ -673,3 +701,25 @@ font-size: 0.9em;
 .ui-tabs table{background-color:rgba(255,255,255,0.6);width:100%;padding:10px;border-radius:5px;margin-bottom:20px;box-shadow:2px 2px #444}
 
 .ui-tabs table tr td #referencia{width:600px}
+
+
+#formDocumentos{
+    width:80%;
+    margin: 30px 0 0 10%;
+}
+
+#tabelaPedidos tr .btnExcluir{margin-right:15px;}
+#tabelaPedidos tr td:last-child{width:50px;}
+#dadostotal{padding:5px;background-color:rgba(255,255,255,0.6);text-indent:20px;}
+#pagamento{
+    padding-left:25px;
+}
+#btnParaConclusao button{float:right;margin-right:30px}
+
+.tablepedidos{
+    width:100%;
+    text-align:center;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+.tablepedidos tr td,.tablepedidos tr th{padding:5px 0 5px 0}

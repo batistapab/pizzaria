@@ -1,5 +1,6 @@
 ﻿<!--#include file="../../inc/seguranca.asp"  -->
 <script src="../../js/jquery.js"></script>    
+<script src="../../js/jquery.mask.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../../css/estilo.css">
 <form class="cadastro" id="editar-usuario" action="../../processos.asp" method="post">
     <h2>Editar usuário</h2>
@@ -8,6 +9,8 @@
     <input type="hidden" name="idUsuario" id="idUsuario" value="0" />
     <div><label for="nome">Nome</label></div>
     <div><input type="text" name="nome" id="nome" maxlength="150" required /> </div>
+    <div><label for="telefone">Telefone</label></div>
+    <div><input type="tel" class="telefone" name="telefone" id="telefone" maxlength="16" required /></div>
     <div><label for="email">E-mail</label></div>
     <div><input type="email" name="email" id="email" maxlength="150" required /> </div>
     <div><label for="perfil">Perfil</label></div>
@@ -41,16 +44,16 @@
  <script>$(document).ready(function () {
   var url="../dados/dados-usuarios.asp";
   var data="q=<% =Request.Querystring("q") %>"
-   
-  var requisicao=$.ajax({
+  $(".telefone").mask("(99) 99999-9999");  var requisicao=$.ajax({
   url:  url,
   type: "POST",
   data: data,
   dataType : "json",
   success: function(retorno){
       $("#idUsuario").val(retorno[0].ID); 
-      $("#nome").val(retorno[0].NOME); 
-      $("#email").val(retorno[0].EMAIL); 
+      $("#nome").val(retorno[0].NOME);
+      $("#email").val(retorno[0].EMAIL);  
+      $("#telefone").val(retorno[0].TELEFONE); 
       $("#perfil").val(retorno[0].PERFIL);
       $("#status").val(retorno[0].STATUSDOUSUARIO);
       $("#observacao").val(retorno[0].OBSERVACAO); 

@@ -1,6 +1,11 @@
 ﻿            <div id="apoio">
                 <div id="atendimento">
                     <h2>Atendimento</h2>
+                    <p><strong>Todos os dias</strong></p>
+                    <p>Das 15:00h as 1:00h</p>
+                    <p>Nossos telefones</p>
+                    <p> (011) 2222-2222</p>
+                    <p> (011) 3333-3333</p>
                 </div>
                 <div id="formasDePagamento">
                     <h2>Formas de pagamento</h2>

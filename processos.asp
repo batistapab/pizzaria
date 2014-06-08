@@ -22,6 +22,9 @@
 
     '1 - Cadastrar usuários
     '2 - Editar usuários/Alterar dados
+    '3 - Cadastrar produtos    
+    '4 - Editar produto  
+    '5 - Cadastrar pedido
 
     operacao = Request.Form("operacao")
     
@@ -33,14 +36,16 @@
 
     select case operacao
         case 1 'Cadastra usuário     
-            Response.Write( processa_usuario(Request.Form("nome"), Request.Form("email"),Request.Form("perfil"),Request.Form("status"),Request.Form("senha"),Request.Form("observacao"),Request.Form("idUsuario"),Request.Form("acao")))
+            Response.Write( processa_usuario(Request.Form("nome"),Request.Form("telefone"), Request.Form("email"),Request.Form("perfil"),Request.Form("status"),Request.Form("senha"),Request.Form("observacao"),Request.Form("idUsuario"),Request.Form("acao")))
 
         case 2 'Editar usuários/Alterar dados
-            Response.Write( processa_usuario(Request.Form("nome"), Request.Form("email"),Request.Form("perfil"),Request.Form("status"),Request.Form("senha"),Request.Form("observacao"),Request.Form("idUsuario"),Request.Form("acao")))
+            Response.Write( processa_usuario(Request.Form("nome"),Request.Form("telefone"), Request.Form("email"),Request.Form("perfil"),Request.Form("status"),Request.Form("senha"),Request.Form("observacao"),Request.Form("idUsuario"),Request.Form("acao")))
         case 3 'Cadastrar produto
              Response.Write( processa_produto(Request.Form("produto"),Request.Form("foto"), Request.Form("categoria"),Request.Form("valor"),Request.Form("descricao"),Request.Form("idproduto"),Request.Form("acao")))
         case 4 'Editar produto
              Response.Write( processa_produto(Request.Form("produto"),Request.Form("foto"), Request.Form("categoria"),Request.Form("valor"),Request.Form("descricao"),Request.Form("idproduto"),Request.Form("acao")))
+        case 5 'Cadastrar pedido
+             Response.Write(CadastraPedido(request.form("id"),Request.Form("qtde"),Request.Form("valor"),Request.Form("metodo_de_pagamento"),Request.Form("total"),idUsuario))
         case else
 
     end select

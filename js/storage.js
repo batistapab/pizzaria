@@ -84,7 +84,7 @@
                         });
                         localStorage.setItem("tbProdutos", JSON.stringify(tbProdutos));
                         window.location.reload();
-                        alert("Informações editadas.")
+                        alert("Item atualizado!")
                         operacao = "A";
                         return true;
                     }
@@ -115,7 +115,7 @@
                         indice_selecionado = parseInt($(this).attr("alt"));
                         tbProdutos.splice(indice_selecionado, 1);
                         localStorage.setItem("tbProdutos", JSON.stringify(tbProdutos));
-                        alert("Registro excluído.");
+                        alert("Item excluído da sua lista.");
                         window.location.reload();
                     }
 

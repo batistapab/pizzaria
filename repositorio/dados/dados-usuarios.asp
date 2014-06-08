@@ -14,9 +14,9 @@ function listar_usuarios(id)
         On Error Resume Next 
 
             if id=0 then             
-               listar_usuarios = QueryToJSON(conn, "SELECT NOME,EMAIL,PERFIL,STATUSDOUSUARIO,OBSERVACAO,ID,SWITCH(PERFIL = 1, 'Administrador',PERFIL = 2, 'Funcionário',PERFIL=3,'Cliente') AS PERFIL_EXT,SWITCH(STATUSDOUSUARIO = 1, 'Ativo',STATUSDOUSUARIO = 2, 'Inativo',STATUSDOUSUARIO=3,'Bloqueado') AS STATUS_EXT FROM USUARIOS").Flush   
+               listar_usuarios = QueryToJSON(conn, "SELECT NOME,TELEFONE, EMAIL,PERFIL,STATUSDOUSUARIO,OBSERVACAO,ID,SWITCH(PERFIL = 1, 'Administrador',PERFIL = 2, 'Funcionário',PERFIL=3,'Cliente') AS PERFIL_EXT,SWITCH(STATUSDOUSUARIO = 1, 'Ativo',STATUSDOUSUARIO = 2, 'Inativo',STATUSDOUSUARIO=3,'Bloqueado') AS STATUS_EXT FROM USUARIOS").Flush   
             else
-               listar_usuarios = QueryToJSON(conn, "SELECT NOME,EMAIL,PERFIL,STATUSDOUSUARIO,OBSERVACAO,ID,SWITCH(PERFIL = 1, 'Administrador',PERFIL = 2, 'Funcionário',PERFIL=3,'Cliente') AS PERFIL_EXT,SWITCH(STATUSDOUSUARIO = 1, 'Ativo',STATUSDOUSUARIO = 2, 'Inativo',STATUSDOUSUARIO=3,'Bloqueado') AS STATUS_EXT FROM USUARIOS WHERE ID="&id&" ").Flush             
+               listar_usuarios = QueryToJSON(conn, "SELECT NOME, TELEFONE,EMAIL,PERFIL,STATUSDOUSUARIO,OBSERVACAO,ID,SWITCH(PERFIL = 1, 'Administrador',PERFIL = 2, 'Funcionário',PERFIL=3,'Cliente') AS PERFIL_EXT,SWITCH(STATUSDOUSUARIO = 1, 'Ativo',STATUSDOUSUARIO = 2, 'Inativo',STATUSDOUSUARIO=3,'Bloqueado') AS STATUS_EXT FROM USUARIOS WHERE ID="&id&" ").Flush             
             end if
         Call desconectaDados
     else

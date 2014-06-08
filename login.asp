@@ -38,9 +38,6 @@
                        <div>
                            <button>Acessar</button>
                        </div>
-                       <div>
-                           <a href="esqueci.asp">Esqueci minha senha</a>
-                       </div>
                </form>
                <form id="tabs-2" method="post" action="logar.asp">                    
                    <input type="hidden" name="op" value="2" />     

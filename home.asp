@@ -42,14 +42,9 @@
                   %>
 	                       <% Case "pedidos" %>
 		                       <!--#include file="repositorio/pedidos/pedidos.asp"-->
+                            <% Case "lista-pedidos" %>
+		                       <!--#include file="repositorio/pedidos/lista-pedidos.asp"-->
 	                       <% Case "pedidos-recentes" %>
-		                       <!--#include file="repositorio/pedidos/pedidos-recentes.asp"-->
-	                       <%  Case "pedidos-pendentes" %>
-		                       <!--#include file="repositorio/pedidos/pedidos-pendentes.asp"-->
-	                        <%  Case "pedidos-concluidos" %>
-		                        <!--#include file="repositorio/pedidos/pedidos-concluidos.asp"-->
-	                       <%   Case "pedidos-cancelados" %>
-		                         <!--#include file="repositorio/pedidos/pedidos-cancelados.asp"-->
 
 	                       <%   'usuarios  %>
 	                       <%   Case "editar-usuario" %>
@@ -58,8 +53,6 @@
 		                        <!--#include file="repositorio/usuarios/cadastrar-usuario.asp"-->
 	                       <%  Case "lista-de-usuarios" %>
 		                        <!--#include file="repositorio/usuarios/lista-de-usuarios.asp"-->
-	                       <%  Case "address" %>
-		                        <!--#include file="repositorio/usuarios/address.asp"-->
 	                       <%  Case "documentos" %>
 		                        <!--#include file="repositorio/usuarios/documentos.asp"-->
 
@@ -74,7 +67,7 @@
 
                            <%  'Este é o valor default
 	                         Case Else %>
-		                        <!--#include file="repositorio/pedidos/pedidos-pendentes.asp" -->
+		                        <!--#include file="repositorio/pedidos/lista-pedidos.asp" -->
                        <% End Select  '################# fim da verificação  %>
                 
 
@@ -101,13 +94,24 @@
            },
            "type": "iframe"
        });
-
-       <% if id<>"pedidos" then %>
+    
+       <% 
+        if checa_documento(idUsuario) = true  then     
+        if id<>"pedidos" then 
+        %>
             var tbProdutos = localStorage.getItem("tbProdutos"); 
             tbProdutos = JSON.parse(tbProdutos); 
             if (tbProdutos != null) 
            window.location.href = "home.asp?id=pedidos";
-      <% end if %>
+
+       <% 
+        end if
+        else
+             if id<>"documentos" then 
+             Response.Write(checa_documento(idUsuario))
+             end if
+        end if
+         %>
       });
 
     </script>

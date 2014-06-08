@@ -6,6 +6,8 @@
     <input type="hidden" name="idUsuario" id="idUsuario" value="0" />
     <div><label for="nome">Nome</label></div>
     <div><input type="text" name="nome" id="nome" maxlength="150" required /> </div>
+    <div><label for="telefone">Telefone</label></div>
+    <div><input type="tel" class="telefone" name="telefone" id="telefone" maxlength="16" required /></div>
     <div><label for="email">E-mail</label></div>
     <div><input type="email" name="email" id="email" maxlength="150" required /> </div>
     <div><label for="perfil">Perfil</label></div>
@@ -27,7 +29,7 @@
         </select>
     </div>
     <div><label for="observacao">Observação</label></div>
-    <div><textarea name="observacao" id="observacao" rows="3" cols="70"></textarea></div>
+    <div><textarea name="observacao" id="observacao" rows="1" cols="70"></textarea></div>
     <p class="alerta"><strong>Só preencha os campos de senha se desejar alterá-la</strong></p>
     <div><label for="senha">Senha</label></div>
     <div><input type="password" name="senha" id="senha" /> </div>
@@ -47,7 +49,8 @@
   dataType : "json",
   success: function(retorno){
       $("#idUsuario").val(retorno[0].ID); 
-      $("#nome").val(retorno[0].NOME); 
+      $("#nome").val(retorno[0].NOME);   
+      $("#telefone").val(retorno[0].TELEFONE);
       $("#email").val(retorno[0].EMAIL); 
       $("#perfil").val(retorno[0].PERFIL);
       $("#status").val(retorno[0].STATUSDOUSUARIO);

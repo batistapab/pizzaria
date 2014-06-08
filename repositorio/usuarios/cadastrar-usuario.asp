@@ -7,6 +7,8 @@
     <div><input type="text" name="nome" id="nome" maxlength="150" required /> </div>
     <div><label for="email">E-mail</label></div>
     <div><input type="email" name="email" id="email" maxlength="150" required /> </div>
+    <div><label for="telefone">Telefone</label></div>
+    <div><input type="tel" class="telefone" name="telefone" id="telefone" maxlength="16" required /></div>
     <div><label for="perfil">Perfil</label></div>
     <div>
         <select name="perfil" id="perfil" required>
@@ -30,7 +32,7 @@
     <div><label for="senha2">Repetir Senha</label></div>
     <div><input type="password" name="senha2" id="senha2" required /> </div>
     <div><label for="observacao">Observação</label></div>
-    <div><textarea name="observacao" id="observacao" rows="5" cols="60"></textarea></div>
+    <div><textarea name="observacao" id="observacao" rows="3" cols="60"></textarea></div>
     <input type="submit" value="Salvar" />
     <input type="reset" value="Limpar" />
 </form>

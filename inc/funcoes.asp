@@ -1,5 +1,12 @@
 ﻿<!--#include file="md5.asp"  -->
 <%
+Response.Buffer = True
+Response.Charset="utf-8"
+Response.AddHeader "cache-control", "private"
+Response.AddHeader "pragma", "no-cache"
+Response.ExpiresAbsolute = #January 1, 1990 00:00:01#
+Response.Expires=0
+
 dim conn,nome,email,idUsuario,perfil,status,senha,observacao,sql,mensagem,erro, rs, acao, msgAcao, id,query,  tabela, col, tableDB, action, parametro,produto,foto,categoria, valor, descricao, telefone, endereco,numero,cep,complemento, bairro,cidade,estado,referencia, op, retorno,confirmarsenha
 
 mensagem=""
@@ -298,6 +305,7 @@ function processa_endereco(id,cep, endereco, numero, complemento,bairro,cidade,e
 end function
 
 
+
 ' A função exclusão funcionará para todas as tabelas cadastradas
 function exclusao(tableDB,id)
        erro=0
@@ -325,61 +333,195 @@ function exclusao(tableDB,id)
         
     end function
 
-                                    function listar_produtos(id)    
-                                    if not IsNumeric(id) then
-                                        mensagem= mensagem & "<br />ID inválido."
-                                        erro=1
-                                    end if
-                                    if erro=0 then
-                                        Call conecta        
-                                        On Error Resume Next 
+  function listar_produtos(id)    
+    if not IsNumeric(id) then
+        mensagem= mensagem & "<br />ID inválido."
+        erro=1
+    end if
+    if erro=0 then
+        Call conecta        
+        On Error Resume Next 
 
-                                            if id<>0 then  
-                                            sql="SELECT ID, PRODUTO,FOTO,CATEGORIA,SWITCH(CATEGORIA = 1, 'Alimento',CATEGORIA = 2, 'Bebida',CATEGORIA=3,'Ingrediente') AS CATEGORIA_EXT, Format (VALOR, '#,##0.00') AS PRECO, DESCRICAO FROM PRODUTOS WHERE CATEGORIA="&id&" "
-                                            Set rs=conn.Execute(sql)
+            if id<>0 then  
+            sql="SELECT ID, PRODUTO,FOTO,CATEGORIA,SWITCH(CATEGORIA = 1, 'Alimento',CATEGORIA = 2, 'Bebida',CATEGORIA=3,'Ingrediente') AS CATEGORIA_EXT, Format (VALOR, '#,##0.00') AS PRECO, DESCRICAO FROM PRODUTOS WHERE CATEGORIA="&id&" "
+            Set rs=conn.Execute(sql)
 
-                                             if rs.EOF then 
-                                               listar_produtos = "Nenhum produto desta categoria cadastrado!"
-                                             else
-                                                  listar_produtos=""
-                                                 'Definir como os dados serão exibidos na tela 
+                if rs.EOF then 
+                listar_produtos = "Nenhum produto desta categoria cadastrado!"
+                else
+                    listar_produtos=""
+                    'Definir como os dados serão exibidos na tela 
                                                 
-                                                  if id=1 then
-                                                    Do While Not rs.Eof
-                                                          listar_produtos = listar_produtos & "<div id='contentID"& rs("ID") &"'>" 
-                                                          listar_produtos = listar_produtos & "<img src='img/produtos/" & rs("CATEGORIA_EXT") &  "/"& rs("FOTO") &"' alt='"& rs("PRODUTO") &"' title='" & rs("PRODUTO") & "' class='imgProdutos' />" 
-                                                          listar_produtos = listar_produtos &"<h3><b class='nomeProduto'>" & rs("PRODUTO") & "</b><label>R$ <span>" & Replace(rs("PRECO"),",",".") & "</span></label></h3> "
-                                                          listar_produtos = listar_produtos & "<p>" &rs("DESCRICAO") & "</p>"
-                                                          listar_produtos = listar_produtos &"<hr /><p>Qtde: <input type='number' min='0' name='qtde' class='qtde' required />"
-                                                          listar_produtos = listar_produtos & "<button value='"& rs("ID") & "' class='button'>Adicionar</button></p></div>"& vbcrlf 
-                                                     rs.movenext 'Passa pro próximo
-                                                     Loop 'Fim do Laço
-	                                                 rs.Close 
-	                                                 Set rs=Nothing
-                                                  else
-                                                    Do While Not rs.Eof
-                                                          listar_produtos = listar_produtos & "<table id='contentID"& rs("ID") &"'><tr>"
-                                                          listar_produtos = listar_produtos &"<td><img src='img/produtos/" & rs("CATEGORIA_EXT") &"/" & rs("FOTO")&"' alt='" & rs("PRODUTO") &"' title='" & rs("PRODUTO") &"' class='imgProdutos' /></td>"
-                                                          listar_produtos = listar_produtos &"<td class='nomeProduto'>" & rs("PRODUTO") &"</td>"
-                                                          listar_produtos = listar_produtos &"<td><label>R$ <span>" & Replace(rs("PRECO"),",",".") &"</span></label></td>" 
-                                                          listar_produtos = listar_produtos &"<td>Qtde: <input type='number' min='0' name='qtde' class='qtde' required /></td>" 
-                                                          listar_produtos = listar_produtos &"<td><button value='" & rs("ID") &"' class='button'>Adicionar</button></td></tr></table>"& vbcrlf 
-                                                     rs.movenext 'Passa pro próximo
-                                                     Loop 'Fim do Laço
-	                                                 rs.Close 
-	                                                 Set rs=Nothing
-                                                  end if
+                    if id=1 then
+                    Do While Not rs.Eof
+                            listar_produtos = listar_produtos & "<div id='contentID"& rs("ID") &"'>" 
+                            listar_produtos = listar_produtos & "<img src='img/produtos/" & rs("CATEGORIA_EXT") &  "/"& rs("FOTO") &"' alt='"& rs("PRODUTO") &"' title='" & rs("PRODUTO") & "' class='imgProdutos' />" 
+                            listar_produtos = listar_produtos &"<h3><b class='nomeProduto'>" & rs("PRODUTO") & "</b><label>R$ <span>" & Replace(rs("PRECO"),",",".") & "</span></label></h3> "
+                            listar_produtos = listar_produtos & "<p>" &rs("DESCRICAO") & "</p>"
+                            listar_produtos = listar_produtos &"<hr /><p>Qtde: <input type='number' min='0' name='qtde' class='qtde' required />"
+                            listar_produtos = listar_produtos & "<button value='"& rs("ID") & "' class='button'>Adicionar</button></p></div>"& vbcrlf 
+                        rs.movenext 'Passa pro próximo
+                        Loop 'Fim do Laço
+	                    rs.Close 
+	                    Set rs=Nothing
+                    else
+                    Do While Not rs.Eof
+                            listar_produtos = listar_produtos & "<table id='contentID"& rs("ID") &"'><tr>"
+                            listar_produtos = listar_produtos &"<td><img src='img/produtos/" & rs("CATEGORIA_EXT") &"/" & rs("FOTO")&"' alt='" & rs("PRODUTO") &"' title='" & rs("PRODUTO") &"' class='imgProdutos' /></td>"
+                            listar_produtos = listar_produtos &"<td class='nomeProduto'>" & rs("PRODUTO") &"</td>"
+                            listar_produtos = listar_produtos &"<td><label>R$ <span>" & Replace(rs("PRECO"),",",".") &"</span></label></td>" 
+                            listar_produtos = listar_produtos &"<td>Qtde: <input type='number' min='0' name='qtde' class='qtde' required /></td>" 
+                            listar_produtos = listar_produtos &"<td><button value='" & rs("ID") &"' class='button'>Adicionar</button></td></tr></table>"& vbcrlf 
+                        rs.movenext 'Passa pro próximo
+                        Loop 'Fim do Laço
+	                    rs.Close 
+	                    Set rs=Nothing
+                    end if
 
-                                             end if
-                                            Else   
-                                              listar_produtos = "Você precisa informar um parâmetro válido"         
-                                            end if
-                                        Call desconecta
-                                    else
-                                             listar_produtos = "<p class='retornoDB'><b>Foram encontrados os seguintes erros:</b><br />"& mensagem & "</p>"
-                                    end if
+                end if
+            Else   
+                listar_produtos = "Você precisa informar um parâmetro válido"         
+            end if
+        Call desconecta
+    else
+                listar_produtos = "<p class='retornoDB'><b>Foram encontrados os seguintes erros:</b><br />"& mensagem & "</p>"
+    end if
 
-                                end function 
+end function 
 
+
+function checa_documento(idUsuario)
+     Call conecta        
+        On Error Resume Next 
+                sql="SELECT * FROM  DOCUMENTOS WHERE IDUSUARIO="&idUsuario&" "
+           Set rs=conn.Execute(sql)
+
+          If Err.Number <> 0 Then  
+              checa_documento = "alert('"& Err.Description &"'); "
+         else
+              if  rs.EOF then 
+              checa_documento = "window.setTimeout('window.location.href = \'home.asp?id=documentos\'' , 0000);"
+              else
+               checa_documento=True
+              end if
+         end if
+        Call desconecta
+end function
+function processa_documentos(id,rg,cpf,idUsuario,acao)    
+    if not IsNumeric(id) then
+        mensagem= mensagem & "<br />ID do documento inválido."
+        erro=1
+    end if
+   if acao <> "Cadastrar" and acao<>"Editar" then
+        mensagem= mensagem & "<br />Ação inválida."
+        erro=1
+    end if
+    if Len(rg) < 5 and Len(rg) > 12 then
+        mensagem= mensagem & "<br />O RG deve conter entre 5 e 12 caracteres."
+        erro=1
+    end if
+    if Len(cpf) <> 14 then
+        mensagem= mensagem & "<br />O CPF deve conter entre 14 caracteres."
+        erro=1
+    end if
+    if not IsNumeric(idUsuario) then
+        mensagem= mensagem & "<br />ID do usuário inválido."
+        erro=1
+    end if
+    if erro=0 then
+        Call conectaDados        
+        On Error Resume Next 
+
+            if id=0 or acao="cadastrar" then
+                sql="INSERT INTO DOCUMENTOS (RG,CPF,IDUSUARIO) VALUES ('"& rg &"','"& cpf &"',"& idUsuario &")"
+                msgAcao="Cadastro efetuado com sucesso!"
+            else
+                sql="UPDATE DOCUMENTOS SET RG='"& rg &"',CPF='"& cpf &"' WHERE ID="&id&" "
+                msgAcao="Atualização efetuada com sucesso!"
+            end if
+           Set rs=conn.Execute(sql)
+
+            If Err.Number <> 0 Then  
+              processa_documentos= Err.Description
+            else
+                if  acao="cadastrar" then
+                    processa_documentos= msgAcao 
+                    else    
+                    processa_documentos= msgAcao 
+                end if
+         end if
+        Call desconectaDados
+    else
+             processa_documentos= "Foram encontrados os seguintes erros:"& mensagem & "';"
+    end if
+
+end function
+
+function listar_documentos(id)
+  dim formulario  
+        Call conecta   
+            sql="SELECT * FROM DOCUMENTOS WHERE ID="&id&" "
+            Set rs=conn.Execute(sql)
+            if rs.EOF then 
+                formulario = "<h2>Cadastrar Documentos</h2>"
+                formulario = formulario & "<div id='formDocumentos'>"
+                formulario = formulario & "    <div><input type='hidden' name='id' id='id' maxlength='12' value='0' /></div>"
+                formulario = formulario & "    <div><label for='rg'>RG</label></div>"
+                formulario = formulario & "    <div><input type='text' name='rg' id='rg' maxlength='12' /></div>"
+                formulario = formulario & "     <div><label for='cpf'>CPF</label></div>"
+                formulario = formulario & "    <div><input type='text' name='cpf' id='cpf' class='cpf' maxlength='14' /></div>"
+                formulario = formulario & "    <div><br /><button class='button'>Cadastrar</button></div>"
+                formulario = formulario & "   </form>"
+                listar_documentos=formulario
+            else 
+                formulario = "<h2>Editar Documentos</h2>"
+                formulario = formulario & "<div id='formDocumentos'>"
+                formulario = formulario & "    <div><input type='hidden' name='id' id='id' maxlength='12'  value='"& rs("ID")&"' /></div>"
+                formulario = formulario & "    <div><label for='rg'>RG</label></div>"
+                formulario = formulario & "    <div><input type='text' name='rg' id='rg' maxlength='12' value='"& rs("RG")&"' /></div>"
+                formulario = formulario & "     <div><label for='cpf'>CPF</label></div>"
+                formulario = formulario & "    <div><input type='text' name='cpf' id='cpf' class='cpf' maxlength='14' value='"& rs("CPF")&"' /></div>"
+                formulario = formulario & "    <div><br /><button class='button'>Editar</button></div>"
+                formulario = formulario & "   </form>"
+                listar_documentos=formulario
+            end if
+        Call desconecta
+end function  
+
+function CadastraPedido(idproduto,qtde,valor,metodo_de_pagamento,total,idUsuario)
+
+dim counter,arrayID,arrayQtde,arrayValor,sqlItem,rsItem,sqlConsulta,rsConsulta,idpedido
+
+arrayID = Split(idProduto,",") 
+arrayQtde = Split(qtde,",") 
+arrayValor = Split(valor,",") 
+
+Call conecta 
+
+On Error Resume Next 
+ 
+sql="INSERT INTO PEDIDOS (METODO_DE_PAGAMENTO, VALOR, DATA_PEDIDO,DATA_PAGAMENTO,STATUS_DO_PAGAMENTO,STATUS_DO_PEDIDO,IDUSUARIO,IP) VALUES ('"& metodo_de_pagamento &"',"& total &",'"& date &" "& time &"','"& date & " "& time &"','PAGO','PENDENTE',"&idUsuario&",'"& Request.ServerVariables("REMOTE_ADDR") &"')" 
+
+Set rs=conn.Execute(sql) 
+    
+sqlConsulta="SELECT ID FROM PEDIDOS WHERE IDUSUARIO="&idUsuario&" ORDER BY DATA_PEDIDO DESC "  
+
+Set rsConsulta=conn.Execute(sqlConsulta)  
+idpedido = rsConsulta("ID")
+
+   
+For counter = 0 To UBound(arrayID)   
+    sqlItem= "INSERT INTO ITENS(QTDE,VALOR, IDPRODUTO,IDPEDIDO) VALUES ('"& arrayQtde(counter) &"',"& arrayValor(counter) &","& arrayID(counter) &","& idpedido &");"
+    Set rsItem=conn.Execute(sqlItem)
+Next   
+ If Err.Number <> 0 Then  
+              CadastraPedido = "<p class='retornoDB'><b>"& Err.Description 
+              CadastraPedido=CadastraPedido&"</b><br /><script type='text/javascript'>window.setTimeout('history.back();', 2000);</script>"
+         else
+              CadastraPedido = "<p class='retornoDB'><b>Pedido cadastrado com sucesso!!!</b><br /><script type='text/javascript'>localStorage.clear(); window.setTimeout('window.location.href = \'home.asp\'' , 2000);</script>"
+               
+         end if
+Call desconecta
+end function
 %>
 
