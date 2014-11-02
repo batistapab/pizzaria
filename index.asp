@@ -3,14 +3,14 @@
 <head>
 <!--#include file="inc/metatags.asp"  -->
     <title>Home - Click Pizzas</title>
+    <link rel="stylesheet" href="nivo/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="nivo/nivo-default.css" type="text/css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <link rel="stylesheet" type="text/css" href="fancybox/source/jquery.fancybox.css" />
     <!-- HTML5 shiv, faz que o IE6-8 suporte elementos HTML5 -->
     <!--[if lt IE 9]>
      <script src="js/html5shiv.js"></script>
     <![endif]-->    
-    <link rel="stylesheet" href="nivo/nivo-slider.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="nivo/nivo-default.css" type="text/css" media="screen" />
 </head>
 <body>
     <div id="main">

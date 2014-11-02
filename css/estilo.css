@@ -723,3 +723,6 @@ font-size: 0.9em;
     border-spacing:0;
 }
 .tablepedidos tr td,.tablepedidos tr th{padding:5px 0 5px 0}
+.nivoSlider a.nivo-imageLink{
+width:98%;
+}
